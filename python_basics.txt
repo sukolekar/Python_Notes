@@ -1,0 +1,22 @@
+#Asking question:	--> tume kay prayant kartay te sanga tyana kalu dya ki tumi chukeche ahat.
+					--> let them know that you have already put in some work to figure things out.
+					on your own.
+*Order of operation:
+	:	** operator eval first, *, /, // and % --> From left to right. +,- eval last(L->R)
+	:	Prarathensis can override all precedence --> can say it is high power.
+	
+	
+# Common data types:
+	Integer --> holds +ve and -ve num
+	float --> holds +ve and -ve number with decimal point.
+	string--> single quote or double--> py chr datatype la string mhanun ghet jr 1st char pahije
+			asel tr use slicing or indexing.
+	Forgot the final single quote: Error-->	Syntax error -->EOL while scanning string litterel
+	
+# Strin replication --> "Suraj" * 4 --> SurajSurajSurajSuraj
+	-->you can't multiply two string and fraction --> only int value 
+# Overwritting variable:	num = 12		-->print(num)->12	
+							num = num + 2	-->print(num)->14 here num value overrite prev value forgotten.
+						--> when the new value assign to variable old value forgotten.
+						--> variable name are case sensitive -> spam != SPAM
+						
