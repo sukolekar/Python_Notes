@@ -1,0 +1,90 @@
+********* STEPS TO DEPLOYE APPLICATION OF HEROKU **********
+
+With this steps follow this website too: https://www.codementor.io/@jamesezechukwu/how-to-deploy-django-app-on-heroku-dtsee04d4
+
+0.Go to Heroku webiste register and login through email id
+
+1.Dawnload Heroku Command Line Interface (CLI)
+	Link:https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+	
+2.Add path to Env variable..
+	Environment Var --> User Variable --> PATH --> edit --> new ==> C:\Program Files\Git\bin\	==> OK
+	
+3. start ==> command line open(normal) vr right click -->  run as an administrator
+
+4.	C:\WINDOWS\system32>heroku	==> if u get list of lib then u have install CLI successfully.....
+
+5.C:\WINDOWS\system32>herok login
+	==>Logging in... done
+	Logged in as surajkolekar123@gmail.com
+	
+	
+6.Now go to your project create project environment and add all pip lib... requ for that project	
+	Ex..dj-database-url==0.5.0 asgiref==3.3.4 Django==3.2.3 django-crispy-forms==1.11.2 gunicorn==20.1.0 Jinja2==3.0.1 MarkupSafe==2.0.1 mysqlclient==2.0.3
+		pytz==2021.1 sqlparse==0.4.1 whitenoise==5.2.0 psycopg2==2.8.6
+		
+7. project directory made create one normal file --> Procfile.txt	
+	add insede one line ==> web: gunicorn djangoherokuapp.wsgi --log-file -  ==> change djangoherokuapp instead write your project name 
+		exx.web: gunicorn crudfbv.wsgi --log-file -	==> crudfbv my root directory project name...
+		
+8.create normal txt file named if : runtime.txt
+	inside file ==> put python latest version ==> 3.9.2
+	
+9.Install the following packages in the environment
+	pip install gunicorn dj-database-url whitenoise psycopg2
+	
+10.Add a requirements.txt file
+	pip freeze > requirements.txt
+	
+	
+11. set up static assets ==> go to settings.py
+	at last add following:
+				
+		PROJECT_ROOT = BASE_DIR
+		STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+		STATIC_URL = '/static/'
+
+
+		# Extra lookup directories for collectstatic to find static files
+		STATICFILES_DIRS = (
+			os.path.join(PROJECT_ROOT, 'static'),
+		)
+
+		STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+		import dj_database_url
+
+		prod_db = dj_database_url.config(conn_max_age=500)
+		DATABASES['default'].update(prod_db)
+
+
+12. setting.py ==> inside middleware add this to 2nd line ===>'whitenoise.middleware.WhiteNoiseMiddleware',
+
+13.crudfbv>heroku create herokudjangoapp
+
+14.Add your app domain name to ALLOWED_HOSTS in settings.py.
+	ALLOWED_HOSTS = ['crudinfosk.herokuapp.com']
+	
+
+15.git init
+
+16.heroku git:remote -a 
+
+17.Add files to the staging area and commit changes.
+	(django_env):~/Desktop/djangoherokuapp$ git add .
+	(django_env):~/Desktop/djangoherokuapp$ git commit -m "Initial commit"
+	 git push heroku master
+	
+18.heroku config:set DISABLE_COLLECTSTATIC=1
+
+19. again ==>git push heroku master
+
+Open browser and hit url:https://crudinfosk.herokuapp.com/	==> you will see your application runnign online....
+
+
+After you change in your application then simply do 3 steps:[i consider u had loged in heroku..]
+	git add .
+	git commit -m """
+	git git push heroku master
+	
+	

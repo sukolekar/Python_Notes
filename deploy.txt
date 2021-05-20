@@ -1,0 +1,647 @@
+Create Virtual env
+
+dj-database-url==0.5.0 asgiref==3.3.4 Django==3.2.3 django-crispy-forms==1.11.2 gunicorn==20.1.0 Jinja2==3.0.1 MarkupSafe==2.0.1 mysqlclient==2.0.3
+pytz==2021.1 sqlparse==0.4.1 whitenoise==5.2.0 psycopg2==2.8.6
+
+Microsoft Windows [Version 10.0.18363.1016]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/6d0d8b4c-83be-4b9f-9eec-977a41a3ec04?requestor=SFMyNTY.g2gDbQAAAA0xMTQuNzkuMTY2LjUybgYAKjgViXkBYgABUYA.by6XEPWPn-MgUHh4zVPvtiJUMbQKdFvzFYR_IZiJYb0
+Logging in... done
+Logged in as surajkolekar123@gmail.com
+
+C:\WINDOWS\system32>e:
+
+E:\>cd E:\TwoOne\django\todoapp
+
+E:\TwoOne\django\todoapp>todoenv\Scripts\activate
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todoappsk
+Creating ⬢ todoappsk... !
+ !    Name todoappsk is already taken
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todotask
+Creating ⬢ todotask... !
+ !    Name todotask is already taken
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todosksk
+Creating ⬢ todosksk... done
+https://todosksk.herokuapp.com/ | https://git.heroku.com/todosksk.git
+
+(todoenv) E:\TwoOne\django\todoapp>git init
+Reinitialized existing Git repository in E:/TwoOne/django/todoapp/.git/
+
+(todoenv) E:\TwoOne\django\todoapp>heroku git:remote -a todosksk
+set git remote heroku to https://git.heroku.com/todosksk.git
+
+(todoenv) E:\TwoOne\django\todoapp>git add .
+warning: LF will be replaced by CRLF in .idea/inspectionProfiles/profiles_settings.xml.
+The file will have its original line endings in your working directory
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m "Initial commit"
+[master (root-commit) 25b173e] Initial commit
+ 38 files changed, 437 insertions(+)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/inspectionProfiles/profiles_settings.xml
+ create mode 100644 .idea/misc.xml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/todoapp.iml
+ create mode 100644 .idea/vcs.xml
+ create mode 100644 Procfile
+ create mode 100644 db.sqlite3
+ create mode 100644 manage.py
+ create mode 100644 requirements.txt
+ create mode 100644 runtime
+ create mode 100644 templates/todo.html
+ create mode 100644 todo/__init__.py
+ create mode 100644 todo/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todo/__pycache__/admin.cpython-39.pyc
+ create mode 100644 todo/__pycache__/models.cpython-39.pyc
+ create mode 100644 todo/__pycache__/views.cpython-39.pyc
+ create mode 100644 todo/admin.py
+ create mode 100644 todo/apps.py
+ create mode 100644 todo/migrations/0001_initial.py
+ create mode 100644 todo/migrations/0002_auto_20210423_2212.py
+ create mode 100644 todo/migrations/__init__.py
+ create mode 100644 todo/migrations/__pycache__/0001_initial.cpython-39.pyc
+ create mode 100644 todo/migrations/__pycache__/0002_auto_20210423_2212.cpython-39.pyc
+ create mode 100644 todo/migrations/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todo/models.py
+ create mode 100644 todo/tests.py
+ create mode 100644 todo/traficsimulator.py
+ create mode 100644 todo/views.py
+ create mode 100644 todoapp/__init__.py
+ create mode 100644 todoapp/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/settings.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/urls.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/wsgi.cpython-39.pyc
+ create mode 100644 todoapp/asgi.py
+ create mode 100644 todoapp/settings.py
+ create mode 100644 todoapp/urls.py
+ create mode 100644 todoapp/wsgi.py
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Enumerating objects: 46, done.
+Counting objects: 100% (46/46), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (40/40), done.
+Writing objects: 100% (46/46), 11.72 KiB | 923.00 KiB/s, done.
+Total 46 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Python app detected
+remote: -----> No Python version was specified. Using the buildpack default: python-3.9.5
+remote:        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> Installing python-3.9.5
+remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting asgiref==3.3.4
+remote:          Downloading asgiref-3.3.4-py3-none-any.whl (22 kB)
+remote:        Collecting dj-database-url==0.5.0
+remote:          Downloading dj_database_url-0.5.0-py2.py3-none-any.whl (5.5 kB)
+remote:        Collecting Django==3.2.3
+remote:          Downloading Django-3.2.3-py3-none-any.whl (7.9 MB)
+remote:        Collecting django-crispy-forms==1.11.2
+remote:          Downloading django_crispy_forms-1.11.2-py3-none-any.whl (112 kB)
+remote:        Collecting gunicorn==20.1.0
+remote:          Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+remote:        Collecting Jinja2==3.0.1
+remote:          Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+remote:        Collecting MarkupSafe==2.0.1
+remote:          Downloading MarkupSafe-2.0.1-cp39-cp39-manylinux2010_x86_64.whl (30 kB)
+remote:        Collecting mysqlclient==2.0.3
+remote:          Downloading mysqlclient-2.0.3.tar.gz (88 kB)
+remote:        Collecting psycopg2==2.8.6
+remote:          Downloading psycopg2-2.8.6.tar.gz (383 kB)
+remote:        Collecting pytz==2021.1
+remote:          Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+remote:        Collecting sqlparse==0.4.1
+remote:          Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+remote:        Collecting whitenoise==5.2.0
+remote:          Downloading whitenoise-5.2.0-py2.py3-none-any.whl (19 kB)
+remote:        Building wheels for collected packages: mysqlclient, psycopg2
+remote:          Building wheel for mysqlclient (setup.py): started
+remote:          Building wheel for mysqlclient (setup.py): finished with status 'done'
+remote:          Created wheel for mysqlclient: filename=mysqlclient-2.0.3-cp39-cp39-linux_x86_64.whl size=111138 sha256=54ddbd10ac40f679dbf3392ff441e570aa228a4cb5156b5a47213a163e790aef
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-_oz4dy93/wheels/43/55/d9/a2243d4b624c18c5cba30bf88e0521147498368068cb302532
+remote:          Building wheel for psycopg2 (setup.py): started
+remote:          Building wheel for psycopg2 (setup.py): finished with status 'done'
+remote:          Created wheel for psycopg2: filename=psycopg2-2.8.6-cp39-cp39-linux_x86_64.whl size=523806 sha256=55b36040e3d0de25e8d6c7c1d781216da346ac6aa198f007fd7162b270fbcce4
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-_oz4dy93/wheels/a2/07/10/a9a82e72d50feb8d646acde6a88000bbf2ca0f82e41aea438a
+remote:        Successfully built mysqlclient psycopg2
+remote:        Installing collected packages: asgiref, dj-database-url, pytz, sqlparse, Django, django-crispy-forms, gunicorn, MarkupSafe, Jinja2, mysqlclient, psycopg2, whitenoise
+remote:        Successfully installed Django-3.2.3 Jinja2-3.0.1 MarkupSafe-2.0.1 asgiref-3.3.4 dj-database-url-0.5.0 django-crispy-forms-1.11.2 gunicorn-20.1.0 mysqlclient-2.0.3 psycopg2-2.8.6 pytz-2021.1 sqlparse-0.4.1 whitenoise-5.2.0
+remote: -----> $ python manage.py collectstatic --noinput
+remote:        Traceback (most recent call last):
+remote:          File "/tmp/build_f0475453/manage.py", line 22, in <module>
+remote:            main()
+remote:          File "/tmp/build_f0475453/manage.py", line 18, in main
+remote:            execute_from_command_line(sys.argv)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 419, in execute_from_command_line
+remote:            utility.execute()
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 413, in execute
+remote:            self.fetch_command(subcommand).run_from_argv(self.argv)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 354, in run_from_argv
+remote:            self.execute(*args, **cmd_options)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 398, in execute
+remote:            output = self.handle(*args, **options)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 187, in handle
+remote:            collected = self.collect()
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 105, in collect
+remote:            for path, storage in finder.list(self.ignore_patterns):
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/finders.py", line 130, in list
+remote:            for path in utils.get_files(storage, ignore_patterns):
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/utils.py", line 23, in get_files
+remote:            directories, files = storage.listdir(location)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/files/storage.py", line 323, in listdir
+remote:            for entry in os.scandir(path):
+remote:        FileNotFoundError: [Errno 2] No such file or directory: '/tmp/build_f0475453/static'
+remote:
+remote:  !     Error while running '$ python manage.py collectstatic --noinput'.
+remote:        See traceback above for details.
+remote:
+remote:        You may need to update application code to resolve this error.
+remote:        Or, you can disable collectstatic for this application:
+remote:
+remote:           $ heroku config:set DISABLE_COLLECTSTATIC=1
+remote:
+remote:        https://devcenter.heroku.com/articles/django-assets
+remote:  !     Push rejected, failed to compile Python app.
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to todosksk.
+remote:
+To https://git.heroku.com/todosksk.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/todosksk.git'
+
+Setting DISABLE_COLLECTSTATIC and restarting ⬢ todosksk... done, v3
+DISABLE_COLLECTSTATIC: 1
+
+(todoenv) E:\TwoOne\django\todoapp>
+
+
+
+
+
+
+
+Microsoft Windows [Version 10.0.18363.1016]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/6d0d8b4c-83be-4b9f-9eec-977a41a3ec04?requestor=SFMyNTY.g2gDbQAAAA0xMTQuNzkuMTY2LjUybgYAKjgViXkBYgABUYA.by6XEPWPn-MgUHh4zVPvtiJUMbQKdFvzFYR_IZiJYb0
+Logging in... done
+Logged in as surajkolekar123@gmail.com
+
+C:\WINDOWS\system32>e:
+
+E:\>cd E:\TwoOne\django\todoapp
+
+E:\TwoOne\django\todoapp>todoenv\Scripts\activate
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todoappsk
+Creating ⬢ todoappsk... !
+ !    Name todoappsk is already taken
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todotask
+Creating ⬢ todotask... !
+ !    Name todotask is already taken
+
+(todoenv) E:\TwoOne\django\todoapp>heroku create todosksk
+Creating ⬢ todosksk... done
+https://todosksk.herokuapp.com/ | https://git.heroku.com/todosksk.git
+
+(todoenv) E:\TwoOne\django\todoapp>git init
+Reinitialized existing Git repository in E:/TwoOne/django/todoapp/.git/
+
+(todoenv) E:\TwoOne\django\todoapp>heroku git:remote -a todosksk
+set git remote heroku to https://git.heroku.com/todosksk.git
+
+(todoenv) E:\TwoOne\django\todoapp>git add .
+warning: LF will be replaced by CRLF in .idea/inspectionProfiles/profiles_settings.xml.
+The file will have its original line endings in your working directory
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m "Initial commit"
+[master (root-commit) 25b173e] Initial commit
+ 38 files changed, 437 insertions(+)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/inspectionProfiles/profiles_settings.xml
+ create mode 100644 .idea/misc.xml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/todoapp.iml
+ create mode 100644 .idea/vcs.xml
+ create mode 100644 Procfile
+ create mode 100644 db.sqlite3
+ create mode 100644 manage.py
+ create mode 100644 requirements.txt
+ create mode 100644 runtime
+ create mode 100644 templates/todo.html
+ create mode 100644 todo/__init__.py
+ create mode 100644 todo/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todo/__pycache__/admin.cpython-39.pyc
+ create mode 100644 todo/__pycache__/models.cpython-39.pyc
+ create mode 100644 todo/__pycache__/views.cpython-39.pyc
+ create mode 100644 todo/admin.py
+ create mode 100644 todo/apps.py
+ create mode 100644 todo/migrations/0001_initial.py
+ create mode 100644 todo/migrations/0002_auto_20210423_2212.py
+ create mode 100644 todo/migrations/__init__.py
+ create mode 100644 todo/migrations/__pycache__/0001_initial.cpython-39.pyc
+ create mode 100644 todo/migrations/__pycache__/0002_auto_20210423_2212.cpython-39.pyc
+ create mode 100644 todo/migrations/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todo/models.py
+ create mode 100644 todo/tests.py
+ create mode 100644 todo/traficsimulator.py
+ create mode 100644 todo/views.py
+ create mode 100644 todoapp/__init__.py
+ create mode 100644 todoapp/__pycache__/__init__.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/settings.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/urls.cpython-39.pyc
+ create mode 100644 todoapp/__pycache__/wsgi.cpython-39.pyc
+ create mode 100644 todoapp/asgi.py
+ create mode 100644 todoapp/settings.py
+ create mode 100644 todoapp/urls.py
+ create mode 100644 todoapp/wsgi.py
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Enumerating objects: 46, done.
+Counting objects: 100% (46/46), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (40/40), done.
+Writing objects: 100% (46/46), 11.72 KiB | 923.00 KiB/s, done.
+Total 46 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Python app detected
+remote: -----> No Python version was specified. Using the buildpack default: python-3.9.5
+remote:        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> Installing python-3.9.5
+remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting asgiref==3.3.4
+remote:          Downloading asgiref-3.3.4-py3-none-any.whl (22 kB)
+remote:        Collecting dj-database-url==0.5.0
+remote:          Downloading dj_database_url-0.5.0-py2.py3-none-any.whl (5.5 kB)
+remote:        Collecting Django==3.2.3
+remote:          Downloading Django-3.2.3-py3-none-any.whl (7.9 MB)
+remote:        Collecting django-crispy-forms==1.11.2
+remote:          Downloading django_crispy_forms-1.11.2-py3-none-any.whl (112 kB)
+remote:        Collecting gunicorn==20.1.0
+remote:          Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+remote:        Collecting Jinja2==3.0.1
+remote:          Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+remote:        Collecting MarkupSafe==2.0.1
+remote:          Downloading MarkupSafe-2.0.1-cp39-cp39-manylinux2010_x86_64.whl (30 kB)
+remote:        Collecting mysqlclient==2.0.3
+remote:          Downloading mysqlclient-2.0.3.tar.gz (88 kB)
+remote:        Collecting psycopg2==2.8.6
+remote:          Downloading psycopg2-2.8.6.tar.gz (383 kB)
+remote:        Collecting pytz==2021.1
+remote:          Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+remote:        Collecting sqlparse==0.4.1
+remote:          Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+remote:        Collecting whitenoise==5.2.0
+remote:          Downloading whitenoise-5.2.0-py2.py3-none-any.whl (19 kB)
+remote:        Building wheels for collected packages: mysqlclient, psycopg2
+remote:          Building wheel for mysqlclient (setup.py): started
+remote:          Building wheel for mysqlclient (setup.py): finished with status 'done'
+remote:          Created wheel for mysqlclient: filename=mysqlclient-2.0.3-cp39-cp39-linux_x86_64.whl size=111138 sha256=54ddbd10ac40f679dbf3392ff441e570aa228a4cb5156b5a47213a163e790aef
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-_oz4dy93/wheels/43/55/d9/a2243d4b624c18c5cba30bf88e0521147498368068cb302532
+remote:          Building wheel for psycopg2 (setup.py): started
+remote:          Building wheel for psycopg2 (setup.py): finished with status 'done'
+remote:          Created wheel for psycopg2: filename=psycopg2-2.8.6-cp39-cp39-linux_x86_64.whl size=523806 sha256=55b36040e3d0de25e8d6c7c1d781216da346ac6aa198f007fd7162b270fbcce4
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-_oz4dy93/wheels/a2/07/10/a9a82e72d50feb8d646acde6a88000bbf2ca0f82e41aea438a
+remote:        Successfully built mysqlclient psycopg2
+remote:        Installing collected packages: asgiref, dj-database-url, pytz, sqlparse, Django, django-crispy-forms, gunicorn, MarkupSafe, Jinja2, mysqlclient, psycopg2, whitenoise
+remote:        Successfully installed Django-3.2.3 Jinja2-3.0.1 MarkupSafe-2.0.1 asgiref-3.3.4 dj-database-url-0.5.0 django-crispy-forms-1.11.2 gunicorn-20.1.0 mysqlclient-2.0.3 psycopg2-2.8.6 pytz-2021.1 sqlparse-0.4.1 whitenoise-5.2.0
+remote: -----> $ python manage.py collectstatic --noinput
+remote:        Traceback (most recent call last):
+remote:          File "/tmp/build_f0475453/manage.py", line 22, in <module>
+remote:            main()
+remote:          File "/tmp/build_f0475453/manage.py", line 18, in main
+remote:            execute_from_command_line(sys.argv)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 419, in execute_from_command_line
+remote:            utility.execute()
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/__init__.py", line 413, in execute
+remote:            self.fetch_command(subcommand).run_from_argv(self.argv)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 354, in run_from_argv
+remote:            self.execute(*args, **cmd_options)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/management/base.py", line 398, in execute
+remote:            output = self.handle(*args, **options)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 187, in handle
+remote:            collected = self.collect()
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 105, in collect
+remote:            for path, storage in finder.list(self.ignore_patterns):
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/finders.py", line 130, in list
+remote:            for path in utils.get_files(storage, ignore_patterns):
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/contrib/staticfiles/utils.py", line 23, in get_files
+remote:            directories, files = storage.listdir(location)
+remote:          File "/app/.heroku/python/lib/python3.9/site-packages/django/core/files/storage.py", line 323, in listdir
+remote:            for entry in os.scandir(path):
+remote:        FileNotFoundError: [Errno 2] No such file or directory: '/tmp/build_f0475453/static'
+remote:
+remote:  !     Error while running '$ python manage.py collectstatic --noinput'.
+remote:        See traceback above for details.
+remote:
+remote:        You may need to update application code to resolve this error.
+remote:        Or, you can disable collectstatic for this application:
+remote:
+remote:           $ heroku config:set DISABLE_COLLECTSTATIC=1
+remote:
+remote:        https://devcenter.heroku.com/articles/django-assets
+remote:  !     Push rejected, failed to compile Python app.
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to todosksk.
+remote:
+To https://git.heroku.com/todosksk.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/todosksk.git'
+
+Setting DISABLE_COLLECTSTATIC and restarting ⬢ todosksk... done, v3
+DISABLE_COLLECTSTATIC: 1
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Enumerating objects: 46, done.
+Counting objects: 100% (46/46), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (40/40), done.
+Writing objects: 100% (46/46), 11.72 KiB | 923.00 KiB/s, done.
+Total 46 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Python app detected
+remote: -----> No Python version was specified. Using the buildpack default: python-3.9.5
+remote:        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> Installing python-3.9.5
+remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting asgiref==3.3.4
+remote:          Downloading asgiref-3.3.4-py3-none-any.whl (22 kB)
+remote:        Collecting dj-database-url==0.5.0
+remote:          Downloading dj_database_url-0.5.0-py2.py3-none-any.whl (5.5 kB)
+remote:        Collecting Django==3.2.3
+remote:          Downloading Django-3.2.3-py3-none-any.whl (7.9 MB)
+remote:        Collecting django-crispy-forms==1.11.2
+remote:          Downloading django_crispy_forms-1.11.2-py3-none-any.whl (112 kB)
+remote:        Collecting gunicorn==20.1.0
+remote:          Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+remote:        Collecting Jinja2==3.0.1
+remote:          Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+remote:        Collecting MarkupSafe==2.0.1
+remote:          Downloading MarkupSafe-2.0.1-cp39-cp39-manylinux2010_x86_64.whl (30 kB)
+remote:        Collecting mysqlclient==2.0.3
+remote:          Downloading mysqlclient-2.0.3.tar.gz (88 kB)
+remote:        Collecting psycopg2==2.8.6
+remote:          Downloading psycopg2-2.8.6.tar.gz (383 kB)
+remote:        Collecting pytz==2021.1
+remote:          Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+remote:        Collecting sqlparse==0.4.1
+remote:          Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+remote:        Collecting whitenoise==5.2.0
+remote:          Downloading whitenoise-5.2.0-py2.py3-none-any.whl (19 kB)
+remote:        Building wheels for collected packages: mysqlclient, psycopg2
+remote:          Building wheel for mysqlclient (setup.py): started
+remote:          Building wheel for mysqlclient (setup.py): finished with status 'done'
+remote:          Created wheel for mysqlclient: filename=mysqlclient-2.0.3-cp39-cp39-linux_x86_64.whl size=111139 sha256=f4d335674ea91a0bdefe2dd11910d8cc2839e7315560e48a3d3cb6064defd82b
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-ylx6nnkz/wheels/43/55/d9/a2243d4b624c18c5cba30bf88e0521147498368068cb302532
+remote:          Building wheel for psycopg2 (setup.py): started
+remote:          Building wheel for psycopg2 (setup.py): finished with status 'done'
+remote:          Created wheel for psycopg2: filename=psycopg2-2.8.6-cp39-cp39-linux_x86_64.whl size=523867 sha256=d3fb5970495f2a545e4004b55c7bf8725dd614db478229afbdff30d85e4694f5
+remote:          Stored in directory: /tmp/pip-ephem-wheel-cache-ylx6nnkz/wheels/a2/07/10/a9a82e72d50feb8d646acde6a88000bbf2ca0f82e41aea438a
+remote:        Successfully built mysqlclient psycopg2
+remote:        Installing collected packages: asgiref, dj-database-url, pytz, sqlparse, Django, django-crispy-forms, gunicorn, MarkupSafe, Jinja2, mysqlclient, psycopg2, whitenoise
+remote:        Successfully installed Django-3.2.3 Jinja2-3.0.1 MarkupSafe-2.0.1 asgiref-3.3.4 dj-database-url-0.5.0 django-crispy-forms-1.11.2 gunicorn-20.1.0 mysqlclient-2.0.3 psycopg2-2.8.6 pytz-2021.1 sqlparse-0.4.1 whitenoise-5.2.0
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 59.4M
+remote: -----> Launching...
+remote:        Released v6
+remote:        https://todosksk.herokuapp.com/ deployed to Heroku
+remote:
+remote:  !
+remote:  ! ## Warning - The same version of this code has already been built: 25b173e281739b6a96c9c7f8eb6e5e9c01993ff9
+remote:  !
+remote:  ! We have detected that you have triggered a build from source code with version 25b173e281739b6a96c9c7f8eb6e5e9c01993ff9
+remote:  ! at least twice. One common cause of this behavior is attempting to deploy code from a different branch.
+remote:  !
+remote:  ! If you are developing on a branch and deploying via git you must run:
+remote:  !
+remote:  !     git push heroku <branchname>:main
+remote:  !
+remote:  ! This article goes into details on the behavior:
+remote:  !   https://devcenter.heroku.com/articles/duplicate-build-version
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/todosksk.git
+ * [new branch]      master -> master
+Running python manage.py makemigrations on ⬢ todosksk... up, run.6757 (Free)
+System check identified some issues:
+Running python manage.py makemigrations on ⬢ todosksk...
+WARNINGS:
+todo.TodoItem: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+        HINT: Configure the DEFAULT_AUTO_FIELD setting or the TodoConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+Running python manage.py migrate on ⬢ todosksk... up, run.1827 (Free)
+System check identified some issues:
+(todoenv) E:\TwoOne\django\todoapp> heroku run python manage.py migrate
+WARNINGS:ython manage.py migrate on ⬢ todosksk...
+todo.TodoItem: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+        HINT: Configure the DEFAULT_AUTO_FIELD setting or the TodoConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, todo
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+  Applying todo.0001_initial... OK
+  Applying todo.0002_auto_20210423_2212... OK
+
+(todoenv) E:\TwoOne\django\todoapp>color white
+Sets the default console foreground and background colors.
+
+COLOR [attr]
+
+  attr        Specifies color attribute of console output
+
+Color attributes are specified by TWO hex digits -- the first
+corresponds to the background; the second the foreground.  Each digit
+can be any of the following values:
+
+    0 = Black       8 = Gray
+    1 = Blue        9 = Light Blue
+    2 = Green       A = Light Green
+    3 = Aqua        B = Light Aqua
+    4 = Red         C = Light Red
+    5 = Purple      D = Light Purple
+    6 = Yellow      E = Light Yellow
+    7 = White       F = Bright White
+
+If no argument is given, this command restores the color to what it was
+when CMD.EXE started.  This value either comes from the current console
+window, the /T command line switch or from the DefaultColor registry
+value.
+
+The COLOR command sets ERRORLEVEL to 1 if an attempt is made to execute
+the COLOR command with a foreground and background color that are the
+same.
+
+Example: "COLOR fc" produces light red on bright white
+
+(todoenv) E:\TwoOne\django\todoapp>heroku open
+ !    Error opening web browser.
+ !    Error: spawn cmd ENOENT
+ !
+ !    Manually visit https://todosksk.herokuapp.com/ in your browser.
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Everything up-to-date
+
+(todoenv) E:\TwoOne\django\todoapp>color 7
+
+(todoenv) E:\TwoOne\django\todoapp>git add .
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m "second commne"
+[master 5a9e989] second commne
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 354 bytes | 354.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Using buildpack: heroku/python
+remote: -----> Python app detected
+remote: -----> No Python version was specified. Using the same version as the last build: python-3.9.5
+remote:        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Using cached install of python-3.9.5
+remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 59.5M
+remote: -----> Launching...
+remote:        Released v7
+remote:        https://todosksk.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/todosksk.git
+   25b173e..5a9e989  master -> master
+
+(todoenv) E:\TwoOne\django\todoapp>git add .
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m "3l commit"
+[master e32915a] 3l commit
+ 4 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 todo/__pycache__/apps.cpython-39.pyc
+ rewrite todoapp/__pycache__/settings.cpython-39.pyc (75%)
+
+(todoenv) E:\TwoOne\django\todoapp>git add .
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m ""
+Aborting commit due to empty commit message.
+
+(todoenv) E:\TwoOne\django\todoapp>git commit -m "reove urls"
+[master 1271edc] reove urls
+ 4 files changed, 3 insertions(+), 3 deletions(-)
+
+(todoenv) E:\TwoOne\django\todoapp>git push heroku master
+Enumerating objects: 29, done.
+Counting objects: 100% (29/29), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (20/20), 3.84 KiB | 1.28 MiB/s, done.
+Total 20 (delta 12), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Using buildpack: heroku/python
+remote: -----> Python app detected
+remote: -----> No Python version was specified. Using the same version as the last build: python-3.9.5
+remote:        To use a different version, see: https://devcenter.heroku.com/articles/python-runtimes
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Using cached install of python-3.9.5
+remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 59.4M
+remote: -----> Launching...
+remote:        Released v8
+remote:        https://todosksk.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/todosksk.git
+   5a9e989..1271edc  master -> master
+
+(todoenv) E:\TwoOne\django\todoapp>
+
+
+
+
+PROJECT_ROOT = BASE_DIR
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'
+
+
+# Extra lookup directories for collectstatic to find static files
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+import dj_database_url
+
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
