@@ -1,0 +1,2331 @@
+******** PYTHON INTERVIEW QUESTIONS *******************
+
+**
+Q1.Explain professional summery, tools, framework of projects.
+    Professional Summery:
+
+    Tools:
+            djnago, mysql,
+
+**
+Q2.Functionality of Projects in details ?
+
+
+Q3.Design rest api/endpoint in flask?
+    config.py
+            from flask import Flaks
+            app = Flask(__name__)
+            db = SQLAlchemy(app)
+
+            @app.route('/getapi')
+            def getDemo():
+                return "This is get method and test in browser......"
+
+            @app.route('/postapi',methods = "post")
+            def postDemo():
+                return "This is POST method and test in POSTMAN......"
+
+
+            if __name__ == '__main__':
+                app.run(debug=True)     #port is 5000 default port you can change i.e port = 8000
+
+Q4.Basic configurations and models required in flask ?
+    from flask import Flask,request,render_template
+    from flask_sqlalchemy import SQLAlchemy     #WE ALSO CALLED ORM[OBJECT REL MAPPING]
+    app = Flask(__name__)
+    app.template_folder = 'frond_end'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost/mvcapp'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_ECHO']=False
+    db = SQLAlchemy(app)
+
+    class Employee(db.Model):
+    eid = db.Column('emp_id', db.Integer(), primary_key=True)
+
+    class Address(db.Model):
+    aid = db.Column('adr_id', db.Integer(), primary_key=True)
+    city = db.Column('adr_city', db.String(30))
+    empid = db.Column('empid',db.ForeignKey('employee.emp_id'),
+                      unique=True,
+                      nullable=True)   #1:1
+
+
+
+Q5.Which library/module required to connect python with aws?
+    Boto3 library ahe
+    more vicharl tr aws vr work nahi kela...
+
+
+Q6.Use of decorators in flask and python with example?
+    python decorators:
+        In python we use decorator to add functionality to an existing code this is called metaprogramming
+        because one part of program try to modify another part of programs
+
+    flask decorators:
+        In flask web applcation each view in flask is function, decorators can be used to add one functionality
+        The route() decorator is the one you probably used already.
+
+Q7.On which datatype you are worked with ?
+    python number: int, float, string, complex
+    python List, set, tuple, dectionary
+    Conversion between data types:- int(), float(), str()
+
+Q8.scenario to replace list as tuple in project?
+    suppose I want to store vehicle model number which is unique to every vihicle update/delete not possible
+    that time i use tuple instead of list.. bcs list contains duplicate + chage original elelments too..
+
+Q9.why need __tablename__ in flask ? what it will by default?
+    default classname he database tablel name asel
+    jr __tablename__='info' tr info he database table che name asel...
+
+Q10. how to merge 2 dictionaries?
+    z = x | y          # NOTE: 3.9+ ONLY
+
+    z = {**x, **y}  #In Python 3.5 or greater
+
+    def merge_two_dicts(x, y):
+    z = x.copy()   # start with x's keys and values
+    z.update(y)    # modifies z with y's keys and values & returns None
+    return z
+
+    How do i concatenate two list:
+        listone = [1,2,3]
+        listtwo = [4,5,6]
+        joinedlist = listone + listtwo
+
+
+Q11.Keys are mutable or immutable in dic?
+    immutable
+    dictionaries have a rule: if you want to be a key, don't go changing.
+
+    Change key in dictionary:
+            x = {'a':4,'b':5,'c':7}
+            x['G'] = x['a']
+            del x['a']
+            print(x)    ==>{'b': 5, 'c': 7, 'G': 4}
+
+*
+Q12.How to expose the endpoints to client?
+    expose-->give access where access would not otherwise be available.
+    STEP 1. IDENTIFY YOUR RESOURCES
+    STEP 2. - DEFINE YOUR ENDPOINTS AND METHODS
+            /books/523523435/requisitions
+            GET - Reads an existing resource
+            POST - Creates a new resource
+            PUT - Updates an existing resource
+            DELETE - Deletes an existing resource
+**
+Q13. steps for deployment on application server
+
+
+Q14.written any testcases? if yes, ehich module used? any use of
+decorator in that?
+    pytest
+
+
+Q15.example for relative import?
+    Relative imports make use of dot notation to specify location.
+    A single dot means that the module or package referenced is in the same directory as the current location.
+    Two dots mean that it is in the parent directory of the current location—that is, the directory above.
+    Three dots mean that it is in the grandparent directory, and so on.
+
+    Ex.
+        from .module2 import function1  #same module..
+        from ..subpackage4.module5 import function6
+
+QQ16.list comprehension example
+    li = [x for x in range(5) if x%2==0]
+    print(li)
+
+    List comprehension is an elegant way to define and create lists based on existing lists.
+    List comprehension is generally more compact and faster than normal functions and loops for creating list.
+    Every list comprehension can be rewritten in for loop, but every for loop can’t be rewritten in the form of list comprehension.
+
+ Q17. Left join and right join in MySql?
+    LEFT OUTER JOIN:
+
+            natural join + left outer join
+            It gives the matching rows and the rows which are in left table but not in right table.
+
+            yamde condition + left che remaingi all records yetil
+
+            select emp_no, e_name,d_name,loc from emp left outer join dept on (emp.e_no = dept.e_No);
+                condition true zalele all rec + remaing only left side records return result made yetil
+
+
+    RIGHT OUTER JOIN: natural join + right side records
+
+            it gives the matchin rows and rows which are in right table but not in left table.
+            yamde condition + right che remaingi all records yetil not left...
+
+            select emp_no, e_name,d_name,loc from emp right outer join dept on (emp.e_no = dept.e_No);
+
+ Q18.mvc architecture of django.
+                                                       models   -- database...
+                                                    /
+    User =====> Django =====> Urls =====> views.py
+                                                    \
+                                                       templates
+
+****
+ Q19. roles & responsibilities in all project
+
+
+ Q20.features of django..
+
+    Excellent Documentation. This is one of the main reasons to start learning Django. ..
+
+    Full loaded.==> Django takes care of user authentication, content administration, site maps, RSS feeds etc.
+
+    Open Source==> It is publicly available without cost.
+
+    secure --cross-site scripting, cross-site request forgery etc.
+            Its user authentication system provides a secure way to manage user accounts and passwords.
+
+    Python Web-framework. ...
+    High Scalability. ...
+    Versatile in Nature. ...
+    Offers High Security. ...
+    Thoroughly Tested. ...
+    Provides Rapid Development.
+
+***
+Q21.which one is more comfortable for small project
+
+
+***
+Q22.which architecture django follows?
+    MVT - model view template
+
+Q23.use of controller in mvc?
+    1.request
+        Google
+
+    2.route to application controller [routing]
+                        |
+                        |
+                    controller
+                                 \
+  5.render     4.controller         3.interact with data model
+  views      /   invoke views       \
+                                      \
+          Views                          MODEL
+                                          \
+                                            database
+
+
+Controller:
+            Responsible for responding to user input
+            Instructing the model to respond to the user input.
+
+Model: Responsible for storing and retriving data
+       Maintenance of state
+
+View: User interaction
+        responsible for rendering model..
+
+
+Q24.request response cycle of django?
+    see in curent folder image...
+    Django-Request-Response-Call-Cycle.png
+
+Q25.What are middleware in django?
+
+    middleware is a lightweight plugin that processes during request and response execution.
+    Middleware is used to perform a function in the application.
+    The functions can be a security, session, csrf protection, authentication etc.
+
+STEPS TO WRITE MIDDLEWARE:
+    step1: in PROJECT folder NOT in app create new .py and write below function in that
+    step2: after that go to settings.py ==> middlewares ==>  'projectname.file_name.function_name'
+    step3: python manage.py runserver ==> you will see result in cmd itself....
+
+ Create a Custom Django Middleware:[function based middleware]
+
+    def simple_middleware(get_response):
+    # One-time configuration and initialization.
+    print("Before view function")
+    def middleware(request):
+        # Code to be executed for each request before
+        # the view (and later middleware) are called.
+
+        response = get_response(request)
+
+        # Code to be executed for each request/response after
+        # the view is called.
+
+        return response
+
+    return middleware
+
+ Create a Custom Django Middleware:[function based middleware]:
+
+     middleware is a class that takes an argument get_response and returns a response
+
+     class FirstMiddleware:
+        def __init__(self, get_response):
+            self.get_response = get_response
+
+        def __call__(self, request):
+            response = self.get_response(request)
+            return response
+
+     __init__(get_response)
+
+    It must accept the get_response argument because Django initializes middleware with only it.
+    It calls only once whereas __call__ executes for each request.
+
+    Activating Middleware:
+        settings.py ==> middleware = [
+                                          #add new middleware
+                                        ]
+Q26. name middlewares in django?
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+
+Q27.use of middlewares?
+    These functions are used to modify req and res objects for tasks like parsing request bodies,
+    adding response headers, etc
+
+Q28.why need django admin interface?
+    It provide instance interface
+    Django provides a default admin interface which can be used to perform create, read, update and delete operations on the model directly.
+
+    django.contrib.admin    ==> in installed app we have this one to give instance UI for model CRUD
+
+Q29.what are signals in django --- explore it
+    Application get notified when action occure elsewhere in the framwork
+    Ex. Author and comments
+
+    How to use singnals ?
+        many ways to use signals but mostly useed decorator @reciever
+
+    signals.py
+        from django.db.model.signals import pos_save
+        from django.dispatch import reciever
+        from .models import ArticleComments
+
+        @reciever(post_save, sender = ArticleComments)
+        def notify_author(sender,instance,created,**kw)
+            if created:
+
+        sender
+        instance
+        created
+        post_save()
+        pre_save()
+
+*
+Q30.what are static files
+
+Q31.difference between makemigrations and migrate?
+
+     makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+
+     migrate, which is responsible for applying migrations, as well as unapplying and listing their status.
+
+
+Q32.what are sessions in django
+    refer notes............
+
+
+Q33.what are sessions in django
+    2.x.x
+    curent version is 3.9.0 +
+
+    In python 2 :
+            asci string type is used by default to store string..
+            xrange
+            7/2 =3
+            print "hello"   not supported in python 3
+            string formatting not there f' '
+
+    In python 3:
+            Unicode is implicit string type by default
+            xrange is replace by range()
+            7/2 = 3.5
+            print("Hello")
+            after 3.6 string formatting possible
+***
+Q34.what are decorators?
+    modify the behavior of function or class without change original buisness logic
+    allows a user to add new functionality to an existing object without modifying it's structure.
+	Or decorator in Python is a function that takes another function as an argument
+***
+Q35.where we used decorators in django?
+    The decorator module can live anywhere, but usually they are related to a specific app.
+***
+Q36.how python code gets executed??
+    Python code is translated into intermediate code, which has to be executed by a virtual machine,
+    known as the PVM, the Python Virtual Machine.
+***
+Q37. what are modules and packages in python?
+
+    collection of classes we organized in way is called model
+
+    packaging is mostly built for distributing reusable code, called libraries, between developers.
+
+    This means that every directory inside of the Python path, which contains a file named __init__.py,
+    will be treated as a package by Python. It's possible to put several modules into a Package
+
+    Packages are a way of structuring Python's module namespace by using "dotted module names
+
+    IMPORTING MODULE FROM PACKAGE:
+        We can import modules from packages using the dot (.) operator
+
+
+
+Q38.What are generators?
+     If the body of a def contains yield, the function automatically becomes a generator function.
+
+    Note: This generator function not only works with strings, but also with other kinds of iterables like list,
+        tuple, etc.
+
+    USE OF PYTHON GENERATOR:
+        1. EASY TO IMPLEMENT:
+        2. MEMORY EFFICIENT:   ==> is preferred since it only produces one item at a time.
+        3. REPRESENT INFINITE STREAME:
+        4. PIPELINE GENERATOR:
+
+APPLICATION:
+        A more practical type of stream processing is handling large data files such as log files.
+        Generators provide a space efficient method for such data processing as only parts of thE
+        file are handled at one given point in time.
+        We can also use Iterators for these purposes, but Generator provides a
+        quick way (We don’t need to write __next__ and __iter__ methods here)
+
+Q39.Differenc between yield and return?
+    yield will save prev state of exe --> when we run again same function it will start from where we left not from
+        start of function.
+    return --> once we reach return then breack complete function if we run again start execution from start
+
+Q40.How Memory is managed in python?
+    Memory management in python 3.6
+    Everything in python is an object.
+    To speedup memory and reduce fragmentation python use manger called PyMalloc
+
+    Internally, python consists of the preserved main storage which can be divided into two areas:
+        Stack Memory for static memory allocation.
+        Heap Memory for dynamic memory allocation.
+
+    Python’s heapq module implements a min-heap. Python heap is internally looked at by the Python memory manager. Python objects(PyObject) usually consist of three things:
+        a. Object Type
+        b. A Reference Count
+        c. Object Value
+
+    Python used only reference counting for memory management and it can’t detect the reference cycle.
+
+    Garbage Collection is done automatically in Python.
+
+    Garbage collection runs periodically based on a threshold.
+    When the threshold value is set to zero, garbage collection is disabled.
+
+    What is the threshold?
+    A threshold is a rate or ratio which defines the total memory allocation and deallocation.
+    It is simply the collection frequency or multipliers of relative generations.
+    Pseudocode to start garbage collection using threshold is:
+        When no. of allocated memory minus no. of deallocated memory > threshol
+
+
+Q41.in a function assigned a value x=10 then how it get stored in python?
+    main ans stack and heap made ahe to diff tell ...
+
+    Python stores object in heap memory and reference of object in stack.
+    Variables, functions stored in stack and object is stored in heap.
+
+    In python memory management is done automatically done by memory manager.
+
+    ex. fun(x,y):
+            c=x+y
+            return c
+
+
+        stack ***                                        heap***
+
+    here functions var stored
+                                                    heap made normal variable store karto integer...
+        c var ref 11 in heap
+        after return call then
+        static area madle var removed
+        and ref value in heap
+
+        Stack frame of function is removed from stack when it returns.
+
+****
+Q42.Have you follow oops concept in projects?
+    yes
+
+***
+Q43.How you work with polymorphism in python?
+    polyporphism means same function name but different signatures..
+    single type entity represent different types of behaviour
+
+    Ex. + operator
+
+   1. Implementing polymorhism with class:
+
+        class Rabbit():
+            def age(self):
+                print("This function determines the age of Rabbit.")
+
+            def color(self):
+                print("This function determines the color of Rabbit.")
+
+        class Horse():
+            def age(self):
+                print("This function determines the age of Horse.")
+
+            def color(self):
+                print("This function determines the color of Horse.")
+
+        obj1 = Rabbit()
+        obj2 = Horse()
+        for type in (obj1, obj2): # creating a loop to iterate through the obj1, obj2
+            type.age()
+            type.color()
+
+   2.Implementing Polymorphism in Python with Inheritance
+
+    class Animal:
+      def type(self):
+        print("Various types of animals")
+
+      def age(self):
+        print("Age of the animal.")
+
+    class Rabbit(Animal):
+      def age(self):
+        print("Age of rabbit.")
+
+    class Horse(Animal):
+      def age(self):
+        print("Age of horse.")
+
+    obj_animal = Animal()
+    obj_rabbit = Rabbit()
+    obj_horse = Horse()
+
+    obj_animal.type()
+    obj_animal.age()
+
+    obj_rabbit.type()
+    obj_rabbit.age()
+
+    obj_horse.type()
+    obj_horse.age()
+
+**IMP**
+ 3  Compile-Time Polymorphism or Method Overloading?
+    PYTHON DOENS'T SUPPORT THIS POLYMORPHISM
+    Python doesn’t use function arguments for method signature, that’s why method overloading is not supported in Python.
+    def normal(a,b):parameter
+        ....
+
+    normal(2,3) #argument
+
+ 4.Operator Overloading in Python
+    * +
+
+ Advantages of Polymorphism:
+    The codes and classes written once can be reused and implemented multiple times.
+    It helps in reducing the coupling between different functionalities and behavior of objects.
+
+***
+Q44.What is monkey patching?
+     run-time modifications of a class or module.
+
+     Why use monkey patching?
+        It allows us to modify or extend the behavior of libraries, modules, classes or methods at runtime
+        without actually modifying the source code
+***
+Q45.Difference between static variable and instance variable?
+    In Python, there is no special keyword for creating static variables and methods.
+
+    inside method variable we called instance variable and outside method variable we called static variable.
+
+    static variable are class level variable.. it availability class level
+    instace variable scope within method only or its called method level varable..
+
+
+Q46.Difference between static method and instance method?
+    class ToyClass:
+        def instancemethod(self):
+            return 'instance method called', self
+
+        #instance methods gives us control of changing the object as well as the class state.
+        using:- self,self.__class__
+        mahnje using obj we can change values inside __init__()
+
+
+        @classmethod
+        def classmethod(cls):
+            return 'class method called', cls
+
+        # It take the cls parameter, which points to the class ToyClass
+        instead of the object of it. It is declared with the @classmethod decorator.
+
+        @staticmethod
+        def staticmethod():
+            return 'static method called'
+        # static methods can neither modify the object state nor class state.
+            They are primarily a way to namespace our methods.
+
+    WHEN TO USE WHICH ONE?
+        use the class methods to create factory methods(prototype)
+
+        Static methods however are primarily used to create utility function and work on data provided to them in arguments
+
+
+NOTE:
+    Instance methods can access the instance through self as well as the class via self.__class__ attribute.
+
+    Class methods can’t access the instance (self) but they have access to the class itself via cls.
+
+    Static Methods work like regular functions but belong to the class’s namespace. Static methods don’t have access to cls or self.
+
+Q47.Have you worked on any abstract class? How we create it?
+    yes
+    rule:
+        1. from abc import ABC,@abstractmethod
+        2.abstract class cha object creaate nahi karta yet ==> typeerror detil
+        3.child class of abstract class responsible to implement methods of abstract class.
+        4.now you can create child class object and run the abstract methods....
+
+
+Q48.which database u worked??
+    mysql, sqlite3, postgress
+
+Q49.types of join in postresql?
+    inner join, left join, right join, and full outer join.
+
+**
+Q50.what is lateral join?
+Q51. how many types of keys postgresql?
+Q52. difference between primary key & unique key
+Q53. suppose their is a string=('a','e','i','o','u') how to make it
+    different like ('a','e','i'), ('o','u')?
+
+***
+Q54.used exception handling in project?
+    yes
+    where is risky code there we used exception handling
+    ex. user form registrations..
+
+***
+Q55.How many block in exception handling?
+    three block
+    try, except, and finally.
+
+    The try block contains the code that may raise exceptions or errors.
+    The except block is used to catch the exceptions and handle them.
+
+Q56. flow of exception handling?
+    try:
+        run this code
+
+    except:
+        Execute this code when there is an exception
+
+    else:
+        No exception ? run this code
+
+    finally:
+        Always run this code...
+
+***
+Q57. when else block gets executed from exception handling?
+    The code enters the else block only if the try clause does not raise an exception.
+
+Q58.5 built-in functions in python
+        id(), type(), eval(), format() input()....
+
+Q59.what is any() function?
+    Like all(), it takes one argument and returns True if, even one value in the iterable has a
+     Boolean value of True
+
+    any((1,0,0))    ==>True
+
+    all():
+        This Built in Functions returns True if all values in a python iterable have a Boolean value of True.
+        all({'*','',''})==>False
+
+        all([' ',' ',' ']) ==> True
+
+Q60.any(123) what will be output?
+    True
+
+Q61. l=['ab',1,2,3] any(l) what will be output?
+    True
+
+
+Q62. purpose of any() function?
+    The any() function returns True if any item in an iterable are true, otherwise it returns False.
+     If the iterable object is empty, the any() function will return False.
+
+Q63.what will be output any('varsha')?
+    True.
+
+Q64. what is map function in python?
+    map function takes two arguments fun and iterable...
+
+    Returns a list of the results after applying the given function
+    to each item of a given iterable (list, tuple etc.)
+
+    map(fun,iterable)
+
+NOTE:
+    map creates a new array by transforming every element in an array, individually.
+
+    filter creates a new array by removing elements that don't belong.
+
+    reduce , on the other hand, takes all of the elements in an array and reduces them into a single value.
+
+    map:
+        lis = [1,2,3,4,5,7,88,7,9]
+        l = list(map(lambda a:a%2==0,lis))
+        print(l)    ==>[False, True, False, True, False, False, True, False, False]
+
+    filter:
+        lis = [1,2,3,4,5,7,88,7,9]
+        l = list(filter(lambda a:a%2==0,lis))
+        print(l)    ==>[2, 4, 88]
+
+    reduce:
+        from functools import reduce
+        lis = [1,2,3,4,5,7,88,7,9]
+        print(reduce(lambda a,b:a+b,lis))   ==>126
+
+Q65.difference between sort() and sorted()?
+    sort() is list method it change original list. sort() only work with list not other types
+
+    sorted() for common complex data type return sorted element in new list...
+
+Q66.what is meta class?
+    A metaclass is the class of a class.
+
+Q67.what are closures in python?
+    refer closure file...
+
+    Python allows a nested function to access the outer scope of the enclosing function.
+    This is a critical concept in decorators -- this pattern is known as a Closure.
+
+    criteria that must be met to create closure in Python:
+
+        1. We must have a nested function (function inside a function).
+
+        2. The nested function must refer to a value defined in the enclosing function
+
+        3. The enclosing function must return the nested function.
+
+    use: hidding data..
+
+Q68.what is decorators?
+
+    first class objects that means that functions in Python can be used or passed as arguments.
+
+    Decorators is a design patter
+	allows a user to add new functionality to an existing object without modifying it's structure.
+
+    #Decorators:
+
+    def funtion1(fun):
+        def funtion2():
+            print("This is before scene")#you can write anything .. start server etc...
+            fun()
+            print("This is after scene")#here also you can write anything...
+
+        return funtion2
+
+    def casual():
+        print("Python interview..")
+
+    cas = funtion1(casual)
+    cas()
+
+    OR
+
+    @funtion1
+    def casual():
+        print("Python interview..")
+    casual()
+
+    OUTPUT:
+        This is before scene
+        Python interview..
+        This is after scene
+
+***
+Q69.where used decorator in ur project??
+
+70.what is abstract class?
+    An abstract class can be considered as a blueprint for other classes.
+
+    A class which contains one or more abstract methods is called an abstract class.
+
+    An abstract method is a method that has a declaration but does not have an implementation.
+
+    While we are designing large functional units we use an abstract class.
+    When we want to provide a common interface for different implementations of a component, we use an abstract class.
+
+71.Use case of abstract cass?
+    To design factory function for other classes
+    When we want to provide a common interface for different implementations of a component, we use an abstract class.
+
+
+Q72.difference between class method and static method?
+    A class method takes cls as first parameter while a static method needs no specific parameters.
+    A class method can access or modify class state while a static method can't access or modify it.
+
+    A class method takes cls as first parameter while a static method needs no specific parameters.
+    A class method can access or modify class state while a static method can’t access or modify it.
+    In general, static methods know nothing about class state. They are utility type methods that take some parameters and work upon those parameters. On the other hand class methods must have class as parameter.
+    We use @classmethod decorator in python to create a class method and we use @staticmethod decorator to create a static method in python.
+
+
+Q73.difference between .get and .filter method
+    Basically use get() when you want to get a single unique object,
+    and filter() when you want to get all objects that match your lookup parameters.
+
+   if mymodel=model.objects.get(name='pol').exists()==False:
+   print "Pol does not exist"
+
+   if mymodel=model.objects.filter(name='pol').exists()==False:
+   print "Pol does not exist"
+
+Q74.write a orm query --- want names starts with 'john'
+
+    Entry.objects.filter(headline__startswith='john')
+
+    SELECT ... WHERE headline LIKE '%Lennon%';
+
+
+Q75.what are signali in django?
+    Django includes a “signal dispatcher” which helps allow decoupled applications get notified
+     when actions occur elsewhere in the framework.
+
+     post_save, which is sent out whenever a new Django model has been created and saved.
+        ex.when a user signs up or uploads a new post,
+
+     pre_delete, which is sent out just before a Django model is deleted.
+        ex.when a user is deleting a message or their account,
+
+     from django.dispatch import Signal, receiver
+
+    # Create a custom signal
+    ping_signal = Signal(providing_args=["context"])
+
+    class SignalDemo(object):
+        # function to send the signal
+        def ping(self):
+            print('PING')
+            ping_signal.send(sender=self.__class__, PING=True)
+
+    # Function to receive the signal
+    @receiver(ping_signal)
+    def pong(**kwargs):
+        if kwargs['PING']:
+            print('PONG')
+
+    demo = SignalDemo()
+    demo.ping()
+
+
+Q76.What is type hints in python?
+    https://stackoverflow.com/questions/32557920/what-are-type-hints-in-python-3-5
+
+Q77.Difference between primary key and unique key?
+
+Primary Key:
+    There can only be one primary key in a table
+    In some DBMS it cannot be NULL - e.g. MySQL adds NOT NULL
+    Primary Key is a unique key identifier of the record
+
+Unique Key:
+    Can be more than one unique key in one table
+    Unique key can have NULL values
+    It can be a candidate key
+    Unique key can be NULL ; multiple rows can have NULL values and therefore may not be considered "unique"
+
+Q78.What is indexing in database?
+    Indexing is a way to optimize the performance of a database
+    It is a data structure technique which is used to quickly locate and access the data in a database.
+
+    The indexing has various attributes:
+        Access Types: This refers to the type of access such as value based search, range access, etc.
+        Access Time: It refers to the time needed to find particular data element or set of elements.
+        Insertion Time: It refers to the time taken to find the appropriate space and insert a new data.
+        Deletion Time: Time taken to find an item and delete it as well as update the index structure.
+        Space Overhead: It refers to the additional space required by the index
+
+    Two types:
+        1.Sequential File Organization or Ordered Index File
+        2.Hash File organization:
+
+
+Q79.What is serializers in django?
+    Django models into other formats.
+    The two major serializers that are most popularly used are ModelSerializer and HyperLinkedModelSerialzer.
+
+    ModelSerializer
+        It will automatically generate a set of fields for you, based on the model.
+        It will automatically generate validators for the serializer, such as unique_together validators.
+        It includes simple default implementations of .create() and .update().
+
+    HyperLinkedModelSerializer:
+        it uses hyperlinks to represent relationships, rather than primary keys.
+
+    class SerializerName(serializers.HyperlinkedModelSerializer):
+        class Meta:
+            model = ModelName
+            fields = List of Fields
+
+Q80.What is an api view?
+    APIView:
+        allow us to define functions that match standard HTTP methods like GET, POST, PUT, PATCH, etc.
+    Viewsets:
+        allow us to define functions that match to common API object actions like : LIST, CREATE, RETRIEVE, UPDATE, etc.
+
+
+
+Q81.In database what is dml and dcl?
+    dml(data manipulation language) --> select,insert,update , delete, merge call
+    dcl(data control langauge) -> grant revoke
+    DDL: create alter drop truncate rename
+    TCL: commit rollback savepoint, set transaction
+
+
+Q82.Tell me about your project
+
+
+Q83.Difference between python array and list?
+    array:
+           support homo
+           contiguous memory allocation
+           fixed size
+           cannot add delete element only read and update
+
+    list:
+        Homo + heto -- complex type support
+        list dynamically grow
+        crud
+
+Q84.what are different methods of writing python functions
+       def keyword used to write functions then fun name it should be follow syntax rule
+       min(), print(), sum(), return
+
+
+Q85.what is init.py file in python?
+    The __init__.py file makes Python treat directories containing it as modules.
+
+Q86.what is __init__ in class?
+    he __init__.py file makes Python treat directories containing it as modules.
+
+Q87.what is self in python class? why it is used?
+    self represents the instance of the class.
+    By using the “self” keyword we can access the attributes and methods of the class in python.
+
+Q88.define a for loop to add elements in list.
+
+   l = [li.append(item) for item in range(5)]
+
+Q89. how to combine 2 list l1=[1,2,3] l2=['a','b','c']?
+    extend() used
+
+Q90. what is difference between append and extend?
+    append size by one
+    extend increment size of list by size of element
+
+Q91.str='abcd' print only 'abc'? how to do it?
+    slice[0:2]
+
+Q92.what is dictionary?
+     A dictionary consists of a collection of key-value pairs.
+     Each key-value pair maps the key to its associated value
+
+    . As of Python version 3.7, dictionaries are ordered.
+     In Python 3.6 and earlier, dictionaries are unordered.
+
+Q93. u have list=['a','b','c'] join it like ['a,b,c']. Do it.
+
+
+Q94.what is split() in python?
+    we get the specific element in the from of new list..
+
+Q95.what is django architecture?
+    MVT
+
+Q96.which database used to write API?
+    MySql
+
+Q97.what are models in django?
+    A model is the single, definitive source of information about your data.
+    It contains the essential fields and behaviors of the data you're storing.
+
+Q98.what are views in django?
+    Django views are a key component of applications built with the framework.
+    At their simplest they are a Python function or class that takes a web request and
+    return a web response.
+
+    Views are used to do things like fetch objects from the database,
+    modify those objects if needed, render forms, return HTML, and much more.
+
+
+Q99.how u will create project in django? what is command for it? tell me
+whole flow?
+    python django-admin startproject
+    python manage.py startproject
+
+Q100. explain request and response in django.
+    see image request-response life cycle...
+
+
+Q101.What is indexing in database?
+    Indexing is a way to optimize the performance of a database
+    It is a data structure technique which is used to quickly locate and access the data in a database.
+
+    The indexing has various attributes:
+        Access Types: This refers to the type of access such as value based search, range access, etc.
+        Access Time: It refers to the time needed to find particular data element or set of elements.
+        Insertion Time: It refers to the time taken to find the appropriate space and insert a new data.
+        Deletion Time: Time taken to find an item and delete it as well as update the index structure.
+        Space Overhead: It refers to the additional space required by the index
+
+    Two types:
+        1.Sequential File Organization or Ordered Index File
+        2.Hash File organization:
+
+Q102. write a query to create a table with id, first name, last name.
+    create table record(id int, name varchar(39), lastname varchar(49))
+
+
+Q103.write a order by query on that table.
+    SELECT * FROM Customers
+    ORDER BY Country;   #Country wise sorted kkarunn milnar...
+
+Q104. write a query to select first 10 records in tables
+    select sal from emp  limit 10;  #it will show first 10 records in perticular sal column
+
+Q105. how to use limit in query?
+     limit keyword is used to limit the number of rows returned in a query result
+     It can be used in conjunction with the SELECT, UPDATE OR DELETE commands LIMIT keyword syntax
+
+     SELECT select_list
+    FROM table_name
+    ORDER BY col_name
+    LIMIT offset, 2,7 or 5;
+
+    from => where => select => orderby => select
+
+     Using MySQL LIMIT to get the nth highest or lowest value
+
+        SELECT select_list
+        FROM table_name
+        ORDER BY sort_expression
+        LIMIT n-1, 1;
+
+
+Q106. how do you provide offset in select query?
+    OFFSET clause specifies the number of rows to skip before starting to return rows from the query.
+    OFFSET 5 rows ==> till 5th row skipped and 6th onwords start return
+
+    OFFSET can only be used with ORDER BY clause. It cannot be used on its own.
+    OFFSET value must be greater than or equal to zero. It cannot be negative, else return error.
+
+
+Q107.write a query to alter column name of table.
+    alter table employee change column first  firstName varchar(39);
+
+Q108.what are different joins in mysql?
+    IMP:
+	Joins help retrieving data from two or more database tables.
+
+	The tables are mutually related using primary and foreign keys.
+
+1.NATURAL JOINS(inner join): Natural join return common values form two tables..
+	condition: 1. two tabel required
+			   2. one attribute common between two table exactly same name
+			   3. fk present in one table that attribute is common
+
+	Formula: join = cross product + select conditions -->[without this join is not possible]
+
+	Que:Find the employee name who is working in a department
+	ans:select name from employee,department where employee.id = department.id
+							OR
+		select name form employee natural join department
+
+Ex.
+	mysql> select * from employee;
+	+----+--------+---------+
+	| id | name   | address |
+	+----+--------+---------+
+	|  0 | NULL   | NULL    |
+	|  1 | suraj  | pune    |
+	|  2 | surya  | mumbai  |
+	|  3 | tom    | USA     |
+	|  4 | cruise | USA2    |
+	+----+--------+---------+
+	5 rows in set (0.00 sec)
+
+	mysql> select * from department;
+	+-----------+-------+------+
+	| dept_name | dname | id   |
+	+-----------+-------+------+
+	| comp      | HR    |    1 |
+	| comp2     | IT    |    2 |
+	| comp2     | Sr    |    4 |
+	+-----------+-------+------+
+	3 rows in set (0.00 sec)
+
+	mysql> select name from employee,department where employee.id = department.id
+		-> ;
+	+--------+
+	| name   |
+	+--------+
+	| suraj  |
+	| surya  |
+	| cruise |
+	+--------+
+	3 rows in set (0.00 sec)
+
+	mysql> select name from employee Natural Join  department;
+	+--------+
+	| name   |
+	+--------+
+	| suraj  |
+	| surya  |
+	| cruise |
+	+--------+
+	3 rows in set (0.00 sec)
+
+
+
+EQUI JOIN:
+	QUE:Find the employee name who worked in a department having location same as there address?
+
+		mysql> select * from dept;
+		+--------+----------+------+
+		| dep_no | location | e_no |
+		+--------+----------+------+
+		| d1     | mumbai   |    1 |
+		| d2     | pune     |    2 |
+		| d3     | latur    |    4 |
+		+--------+----------+------+
+		3 rows in set (0.00 sec)
+
+		mysql> select * from emp;
+		+------+--------+---------+
+		| e_no | e_name | address |
+		+------+--------+---------+
+		|    1 | ram    | mumbai  |
+		|    2 | suraj  | pune    |
+		|    3 | surya  | latur   |
+		|    4 | Tom    | mumbai  |
+		+------+--------+---------+
+		4 rows in set (0.03 sec)
+
+		mysql> select e_name from emp,dept where emp.e_no = dept.e_no and emp.address = dept.location;
+		+--------+
+		| e_name |
+		+--------+
+		| ram    |
+		| suraj  |
+		+--------+
+		2 rows in set (0.04 sec)
+
+
+SLEF JOIN:
+	table joins itself
+
+		c_no is another table course adn s_id is also another table student
+
+		+------+--------+---------+
+		| c_no | s_id | address |
+		+------+--------+---------+
+		|    c1 | s1  | mumbai  |
+		|    c2 | s2  | pune    |
+		|    c3 | s3  | latur   |
+		|    c4 | s4  | mumbai  |
+		+------+--------+---------+
+				fig. study table
+
+	Que: Find the studnet id who is enrolled in at least two courses.
+	ans: select t1.s_id from study as t1, study as t2 where t1.s_id = t2.s_id and t1.c_id <> t2.c_id
+
+	ekach table 2 times use karto self join made teva same table name cross product sathi use kela tr error deto
+	so we use alias like t1 and t2
+
+
+LEFT OUTER JOIN:
+
+		natural join + left outer join
+		It gives the matching rows and the rows which are in left table but not in right table.
+
+		yamde condition + left che remaingi all records yetil
+
+		select emp_no, e_name,d_name,loc from emp left outer join dept on (emp.e_no = dept.e_No);
+			condition true zalele all rec + remaing only left side records return result made yetil
+
+
+RIGHT OUTER JOIN: natural join + right side records
+
+		it gives the matchin rows and rows which are in right table but not in left table.
+		yamde condition + right che remaingi all records yetil not left...
+
+		select emp_no, e_name,d_name,loc from emp right outer join dept on (emp.e_no = dept.e_No);
+
+
+Q109.what is left join?
+    Refer Q108
+Q110.what is inner join?
+    Refer Q108
+
+Q111.what is normalization in database?
+    ormalization is the process of structuring a database
+    ormalization is used to minimize the redundancy from a relation or set of relations.
+
+    1NF:	A relation is in 1NF if it contains an atomic value.
+    2NF:    A relation will be in 2NF if it is in 1NF and all non-key attributes are fully functional dependent on the primary key.
+    3NF:    A relation will be in 3NF if it is in 2NF and no transition dependency exists.
+    4NF:    A relation will be in 4NF if it is in Boyce Codd normal form and has no multi-valued dependency.
+    5NF:    A relation is in 5NF if it is in 4NF and not contains any join dependency and joining should be lossless.
+
+Q112.what is stored procedure?
+    is nothing but the group of SQL statements that accepts some input in the form of parameters and performs
+    some task and may or may not returns a value.
+
+    CREATE or REPLACE PROCEDURE name(parameters)
+    IS
+    variables;
+    BEGIN
+    //statements;
+    END;
+
+
+Q113. what is views in mysql?
+        CREATE VIEW `view_name` AS SELECT statement;
+     predefined SQL query.
+     A view can contain all rows of a table or select rows from a table.
+
+Q114. how will u rate urself in python and mysql out of 5?
+    4
+
+
+Q115.what would u prefer to a project --- django or flask?
+
+    ORM in Django makes it easy to create templates, views, forms, etc.
+    which is made on data models but flask does not support data models.
+    If you're going for a smaller web application then Flask will be an optimal choice
+    since it is well suited for small and non-complicated web applications with high load.
+
+     Django is a great choice for larger projects
+
+Q116.ur roles and responsibilities in current project
+    explain in proj questions
+
+Q117. what is token authentication?
+    The general concept behind a token-based authentication system is simple.
+    Allow users to enter their username and password in order to obtain a token which allows
+    them to fetch a specific resource - without using their username and password.
+    Once their token has been obtained, the user can offer the token - which offers access to a
+    specific resource for a time period - to the remote site.
+
+
+Q118.why u gone with token authentication?
+    token has expire feature
+
+Q119.how exceptions gets handled in python?
+    try except else finally
+
+Q120.what are different hhtp methods?
+    GET     get the data from the request url
+    POST    send the data from request rul
+    PUT     send data to specific url
+    HEAD    request for information about web page.
+    DELETE  The DELETE method deletes the specified resource.
+    PATCH   perform patch req specific format
+    OPTIONS have stored server capabilities.
+
+
+Q121.difference between post and put?
+    PUT method is call when you have to modify a single resource, which is already a part of resource collection.
+
+    POST method is call when you have to add a child resource under resources collection.
+
+
+    If you send the same PUT request multiple times, the result will remain the same but if you send the same POST request multiple times, you will receive different results.
+
+    PUT method is idempotent whereas POST method is not idempotent.
+
+Q122.what is uri?
+    Uniform Resource Identifier
+    URI is superset of URL
+    URI is like your name
+    URL is like your address.
+
+Q123.how to secure ur API?
+    HTTPS always
+
+    Passwords should never be stored as plain text, all user account should be compromised
+    so we use token two way authentication usinng token we can expire token if someone tried to enter
+    in our teritory
+
+    Strong authentication: Oauth2 system works the best
+
+    Validate input
+
+    Enforce IP address filtering, if applicable
+
+    Metasploit::
+        Metasploit is an extremely popular open-source framework for penetration testing of web apps and APIs.
+
+    Cloudflare
+
+    Netsparker comes with a USP of “proof-based scanning”.
+
+Q124.what is django-form?
+    Django provides a Form class which is used to create HTML forms.
+
+    from django import forms
+    class StudentForm(forms.Form):
+        firstname = forms.CharField(label="Enter first name",max_length=50)
+        lastname  = forms.CharField(label="Enter last name", max_length = 100)
+
+
+Q125.ways to create a login page in django?
+    {% csrf_token %}
+    {{ form.as_p }}
+
+
+Q126.what is payload?
+    payload mhannje tumchi request body
+    request body made jo data deto tyala payload mhantat...
+
+    http method body ---> tyamde form cha data asu shato
+    get method la payload nasel bcs get method la request body  naste...
+
+
+Q127. what is use of urls.py file in django?
+    urls.py file present in project level folder it use to redirect request to view.py file
+    we can create application level url.py file and do the same thing..
+
+
+Q128.why we need regex?
+    Regular Expression : It is a sequence of characters used as a search pattern.
+
+    Regular expression module API's:
+
+    re.match(regExp, string, flags) : - It returns of match object of information like whether pattern is matched or not
+
+    - Span of the match(starting and ending index)
+
+    - matched string
+
+    - Flags contain special handling.
+
+    - If the regExp doesn't match it returns 'None'
+
+129.write a list comprehension for even numbers.
+    li = [item for item in range(20) if item %2==0] print(li)
+
+
+Q130.write a dictionary comprehension for even numbers upto 100.
+     square_dict = {num for num in range(1, 100) if num%2==0 }
+    print(square_dict)
+
+Q131.what is decorator?
+    we used decorator modify behaviour of programm without changing existing behaviour of our program
+
+    How to achive this functionality
+        using nested function
+        write @decorator
+
+    #Decorators:
+
+    def funtion1(fun):
+        def funtion2():
+            print("This is before scene")#you can write anything .. start server etc...
+            fun()
+            print("This is after scene")#here also you can write anything...
+
+        return funtion2
+
+    def casual():
+        print("Python interview..")
+
+    cas = funtion1(casual)
+    cas()
+
+   OUTPUT:
+    This is before scene
+    Python interview..
+    This is after scene
+
+    OR
+
+    @funtion1
+    def casual():
+        print("Python interview..")
+    casual()
+
+    OUTPUT:
+        This is before scene
+        Python interview..
+        This is after scene
+
+Q132.write a decorator function for execution time.
+    def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        if 'log_time' in kw:
+            name = kw.get('log_name', method.__name__.upper())
+            kw['log_time'][name] = int((te - ts) * 1000)
+        else:
+            print '%r  %2.2f ms' % \
+                  (method.__name__, (te - ts) * 1000)
+        return result
+    return timed
+
+Q133.explain mvc architecture.
+    see the image
+
+    The Model-View-Controller (MVC) is an architectural pattern that separates an application into three
+     main logical components: the model, the view, and the controller. ...
+     MVC is one of the most frequently used industry-standard web development framework to create scalable
+     and extensible projects.
+
+Q134.explain current project along with architecture.
+    MVT
+
+
+Q135. which design patterns are you used in current project?
+    creational Design Patter:
+        singletone
+        factory
+        prototype
+
+    Sructural
+        adapter
+        proxy
+        decorator
+
+    Behavioral:
+        observe
+        iterator
+
+
+Q136.difference bwtween flask and django
+    both are web framework use to design web application
+    django              flask
+    full-packaged       full flexibility
+    Built in ORM        SQLAlchemy
+    Monolithic          Diversify
+
+Q137. project scenario example when to use django and when flask?
+
+Q138.138. what is REST?
+    Representational state transfer
+    It is commonly used to create interactive applications that use Web services
+    means create api using this method or rule
+
+***
+Q139.what are actions with REST we can do? Explain all actions.
+    The most important takeaways for designing high-quality REST APIs is to have consistency by following
+    web standards and conventions. JSON, SSL/TLS, and HTTP status codes are all standard building blocks of the
+    modern web.
+
+    Performance is also an important consideration. We can increase it by not returning too much data at once.
+    Also, we can use caching so that we don’t have to query for data all the time.
+
+    Paths of endpoints should be consistent, we use nouns only since the HTTP methods indicate the action we want
+    to take. Paths of nested resources should come after the path of the parent resource.
+    They should tell us what we’re getting or manipulating without the need to read extra documentation to
+    understand what it’s doing.
+
+Q140.what is mvc and mvt?
+    1. Model View Controller (MVC) :
+        It is a software design pattern that is used to implement user interfaces and gives emphasis on
+        separating data representation from the components which interact and process the data.
+
+        This Model is the central component of this architecture and manages the data, logic as well as other constraints of the application.
+
+        The View deals with how the data will be displayed to the user and provides various data representation components.
+
+        The Controller manipulates the Model and renders the view by acting as a bridge between both of them.
+
+    2. Model View Template (MVT) :
+            This is yet another design pattern similar to MVC. It is also used for implementing web interfaces
+            and applications but in contrast to MVC, the controller part is taken care for us by the framework
+             itself.
+
+             This Model similar to MVC acts as an interface for your data and is basically the logical structure behind the entire web application which is represented by a database such as MySql, PostgreSQL.
+
+             The View executes the business logic and interacts with the Model and renders the template. It accepts HTTP request and then return HTTP responses.
+
+             The Template is the component which makes MVT different from MVC. Templates act as the presentation layer and are basically the HTML code that renders the data. The content in these files can be either static on dynamic.
+
+Q141.What is hashtables ? what are techniques in that?
+
+    Hashing is the process of converting a given key into another smaller value for O(1) retrieval time.
+
+    data stored in an associative manner
+    data is stored in array format
+    where each data values has its own unique index value
+    Access of data becomes very fast if we know the index of the desired data.
+
+    key ==> hash function  ==>Hash
+
+    Key points in Hashing:
+        array used to point linked list
+        linkedlist for perticular key string length
+
+    Collision:
+        The phenomenon where two keys generate same hash value from a given hash function is called as a collision.
+
+        There are majorly 2 methods for handling collisions:
+            1.Separate Chaining
+            2.Open Addressing
+
+Q142. which one is better orm or normal query?
+    ORM and SQL are two tools available that web developers can use in database management.
+    When comparing them, SQL has a higher hands-on management than ORM.
+    Because ORM has a higher level of abstraction and more complexity than SQL,
+    less hands-on management is required; this makes data management more efficient.
+
+    I've found for any large-scale application you'll find yourself using both approaches. (ORM for straightforward CRUD and SQL/thin DAL for reporting).
+
+    I see it like this: use an ORM for portability, plain SQL if it's just going to be using one type of database.
+
+Q143. what is python -- interpreted or compiled?
+    python is interpreter language we have also compiler .pyc but we starting from python is interpreter lang
+
+
+Q144.How python files get compiled?
+    Python is an interpreted language, as opposed to a compiled one, though the distinction can be blurry because of the presence of the bytecode compiler.
+     This means that source files can be run directly without explicitly creating an executable which is then run.
+
+Q145.why we need .pyc file?
+    pyc file is generated, there is no need of *. ... pyc files which is actually a bytecode.
+    Then this . pyc file(bytecode) is interpreted using CPython interpreter.
+
+***
+Q146.r u worked on threading, GPI?
+
+
+Q147.what are collection data types in python?
+    Counter
+    defaultdict
+    OrderedDict
+    deque
+    ChainMap
+    nametuple()
+
+
+Q148.use cases of list, set, tuple, dictionary?
+    when u have dynamic data go for list,
+    data is static go for tuple
+    unique data go for set
+    key:value pair store data go for dictionary...
+
+
+Q149. what datatypes we can use as a key?
+    tuple we can use as a key it cannot be modified...
+
+Q150.how memory managed in python?
+    Python used only reference counting for memory management and it can’t detect the reference cycle.
+    Garbage Collection is done automatically in Python.
+
+    main ans stack and heap made ahe
+
+
+Q151 when x=0 how it get stored in memory?
+     x will stored in stack and 0 will be stored in heap space and reference from stack to heap is created
+
+     after x leaving reference gc call automatically internall and check ref count
+     if ref count zero of that value then that value get garbage collect automatically
+
+Q152.eval() keyword in python?
+    eval is a built-in- function used in python,
+    the eval function evaluates the “String” like a python expression and returns the result as an integer.
+
+    The eval() function takes three parameters:
+        expression - the string parsed and evaluated as a Python expression
+        globals (optional) - a dictionary
+        locals (optional)- a mapping object. Dictionary is the standard and commonly used mapping type in Python.
+
+    x = 1
+    print(eval('x + 1'))    ==>2
+
+Q153.can we have private, public, protected classes/variables in python?
+    But there is a method in Python to define Private: Add “__” (double underscore ) in front of the
+    variable and function name can hide them when accessing them from out of class.
+
+     Python doesn't have real private methods, so one underline in the beginning of a method or attribute
+      means you shouldn't access this method
+
+     public scope to make that property/method available from anywhere, other classes and instances of the object.
+
+    private scope when you want your property/method to be visible in its own class only.
+
+    protected scope when you want to make your property/method visible in all classes that extend current class including the parent class.
+
+
+
+Q154. difference between classmethod, staticmethod, instancemethod?
+    instance method:
+        most common
+        must have self parameter
+        no decorator needed
+        can be accessed through object(instance of class)
+
+    class method:
+        Doesn't need self parameter
+        Need cls as a parameter
+        Need decorator @classmethod
+        can be accessed directloy through the class
+        don't need instance of the class.
+
+    staticmethod:
+        Doesn't need self parameter
+        Doesn't need slef or cls as a parameter
+        need decorator @staticmethod
+        can only acess variable passed as a argument
+        static method cannot be accessed through class or i'ts instance..
+
+Q155.we have classmethod then why we need staticmethods?
+    Difference: A classmethod will receive the class itself as the first argument, while a staticmethod does not.
+    So a static method is, in a sense, not bound to the Class itself and is just hanging in there just because
+    it may have a related functionality.
+
+
+Q156. what is __init__ method in class?
+    constructor --> ref instance variable
+    This method is called when an object is created from a class and it allows the class to initialize the attributes of the class
+
+
+Q157. what is __repr__ in class?
+    In Python, __repr__ is a special method used to represent a class's objects as a string
+    __repr__ is called by the repr() built-in function
+
+Q158. what is slots in python?
+    slots provide a special mechanism to reduce the size of objects
+    It is a concept of memory optimisation on objects
+
+Q159.scenario questions
+
+Q160.what is diamond problem? how to overcome it?
+    not in python
+    Virtual inheritance solves the classic “Diamond Problem”.
+    It ensures that the child class gets only a single instance of the common base class.
+
+    MRO use hoto jeva common base class chi method access karat asel teva
+
+Q161.scenario quesstions on list methods
+
+Q162.any experience in react?
+    not now
+    React is an open-source front-end JavaScript library for building user interfaces or UI components.
+
+Q163.roles and responsibilities in all projects
+
+***
+Q164. u have done testing --- automation or manual?
+    manual --
+
+**
+Q165.how u handled test cases --- excel or any tool?
+
+
+Q166.how agile process works? --- explain all details about agile
+
+Q167.have u used any repository management tool?
+    pypy
+    github
+
+Q168.what type of branches u used? how managed check up and check out in
+git?
+    The git checkout command allows you to switch between branches in a codebase
+
+Q169.how will u create uri for patient module for get, post, delete  actions?
+
+
+Q170.features of python languages
+    Easy to code: Python is a high-level programming language. ...
+    Free and Open Source: ...
+    Object-Oriented Language: ...
+    GUI Programming Support: ...
+    High-Level Language: ...
+    Extensible feature: ...
+    Python is Portable language: ...
+    Python is Integrated language:
+
+
+ Q171. how python handles in memory/memory management?
+
+    refer ques 150
+
+Q172.what is stackoverflow exception in python? ---- bad recursive call
+    when your recursive functions doesn't have the correct termination condition, so it ends up calling itself forever.
+
+Q173.what is recursion?
+    The process in which a function calls itself directly or indirectly is called recursion
+
+    f(n) = 1                  n=1
+
+    f(n) = n + f(n-1)           n>1
+
+
+        int fact(int n)
+            {
+                if (n < = 1) // base case
+                    return 1;
+                else
+                    return n*fact(n-1);
+            }
+
+***
+Q174.ur 24*7 running application gives out of memory error, what are  causes of it?
+    when the allocation crosses the heap limit or your process demand a amount of memory tha
+
+
+Q175. programmetical difference between python and c languages.
+    Python is a general-purpose interpreted, interactive, object-oriented, and high-level programming language
+
+    . C language has limited number of built-in functions as compared to that in Python language
+
+    On other hand Python has a large library of built-in function as compared to C language
+
+
+Q176.feature view comparison of python and c
+
+Q177.what is object oriented programming?
+    An object has two characteristics:
+
+    attributes
+    behavior
+
+Q178.what is RDBMS?
+    Data is represented in terms of tuples (rows) in RDBMS.
+    Relational database is most commonly used database. It contains number of tables and each table has its own primary key
+    Due to a collection of organized set of tables, data can be accessed easily in RDBMS
+
+Q179.what is postgreSQL?
+    open source object-relational database system.
+
+
+Q180.key properties of RDBMS database.
+    Values are atomic.
+    All of the values in a column have the same data type.
+    Each row is unique.
+    The sequence of columns is insignificant.
+    The sequence of rows is insignificant.
+    Each column has a unique name.
+    Integrity constraints maintain data consistency across multiple tables.
+
+Q181 what do you know about REST?
+   it is representational state transer .
+   Using
+
+   REST is built on top of the HTTP standard, and it uses the same verbs
+   (GET, POST, PUT, DELETE, OPTIONS, HEAD) than any web browser would use to navigate the internet.
+
+    GET retrieves resources.
+    POST submits new data to the server.
+    PUT updates existing data.
+    DELETE removes data.
+
+    We have to take into account security, performance, and ease of use for API consumers.
+
+Q182. what are the actions/operations come under REST API?
+    CRUD
+
+Q183.what is horizontal scaling of web services?
+    Horizontal scaling is a strategy used to enhance the performance of the server node by adding more instances
+     of the server to your existing pool of servers so that the load can be equally distributed.
+
+Q184.difference between tuple and dictionary
+
+Q185.how to access tuple elements?
+    indexing --> because tuple internally array work
+
+Q186.what will be error if we trying to change/update tuple element?
+    TypeError: 'tuple' object does not support item assignment
+
+
+Q187. what is lambda functions?
+    anonymous function means no name
+    we use for one time use
+        filter
+        map
+        reduce
+
+
+Q188. what are middlewares in django?
+    with the help of middleware we can modified django request response object
+
+    django also have some built in middlweare like authentication, session middleware...
+
+
+Q189. where we can store cookies and sessions?
+
+    Cookies are only stored on the client-side machine, while sessions get stored on the client as well as a server.
+    A session creates a file in a temporary directory on the server where registered session variables and their values are stored.
+    This data will be available to all pages on the site during that visit.
+
+
+Q190.what is purpose of cookies in browser?
+    HTTP cookies, or internet cookies, are built specifically for Internet web browsers to track, personalize, and save information about each user's session
+    A “session” just refers to the time you spend on a site. Cookies are created to identify you when you visit a new website.
+
+
+Q191.how browser communicates to server in sessions?
+    Web browsers communicate with web servers using the HyperText Transfer Protocol (HTTP)
+    When you click a link on a web page, submit a form, or run a search, the browser sends an HTTP Request to the server.
+
+Q192. how server knows session started?
+     Server sends a cookie to the user with a session id
+     This session id identifies the user to the server.
+
+Q193. how to delete a file from python?
+    import os
+    os.remove("ChangedFile.csv")
+    print("File Removed!")
+
+
+Q194.scenario question --- code for list and range
+
+Q195. what is deep copy and shallow copy?
+
+Q196.what is ORM?
+    ORM stands for object relational mapping
+    To write query we to connect database with pytoh we use ORM for that flask SQLAlchemy and django have
+    djnago.db
+
+    to connect python code with database we use one  lib called ORM
+
+Q197.what are the methods REST supports?
+
+Q198. what is OPTION method in REST?
+    inside option --> we store header information
+    server capabilities are present inside header tag...
+
+Q199. what is difference between PUT and PATCH?
+    if we have record 10 and want to update all then use put method it is tightly coupled
+    from 10 record we update 2 then use patch method...
+
+
+
+Q200.find second highest employee salary from employee table --- 2-3 ways  to do it
+    1st way:
+        select max(salary) from employee where salary not in(select max(salary) from employee);
+    2nd way:
+        select salary from employee e1 where 2 = (select count(distinct(salary)) from employee e2 where e2.salary > e1.salary);
+
+
+Q201. what is offset in MySQL?
+    LIMIT is a special clause used to limit MySQL records a particular query can return.
+    It can prove extremely useful if you want to paginate your query results, or manage queries on large tables
+    MySQL OFFSET is used to specify which row should be fetched first.
+
+Q202. how we will bypass form in HTML?
+    bypassing HTML forms is to override hidden form fields.
+    HTML allows data to be placed into a page with the tag “<IN- PUT Type="Hidden" ...>”
+    These fields are not shown to the users in the browsers, but data in the fields are submitted to the server.
+
+Q203.what is heroku?
+    Heroku is a cloud platform as a service
+    platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Q204.what are attributes and properties in HTML?
+    Attributes are defined by HTML. Properties are accessed from DOM (Document Object Model) nodes.
+
+    <input type="text" value="Name:">
+    There are 2 attributes, type and value.Also it has 2 properties,type and value.
+
+    <input id="inputId" type="text" value="Name:">
+    The id property is a reflected property for the id attribute.
+
+Q205. tell me steps for deployment of project on heroku.
+    https://www.codementor.io/@jamesezechukwu/how-to-deploy-django-app-on-heroku-dtsee04d4
+
+
+Q206.how to configure working repository with heroku and how to work/deploy updating features on heroku?
+
+    After you change in your application then simply do 3 steps:[i consider u had loged in heroku..]
+	git add .
+	git commit -m """
+	git git push heroku master
+
+
+Q207. which methodologies u worked?
+    i worked on agile scrum methodology
+        requirement gathering
+        analysys/design
+        implentation/coding
+        AQ and testing
+        deployment
+        Review
+
+Q208.what are engines MySQL supports?
+    MyISAM and InnoDB. .
+
+    For example, InnoDB supports transactions, whereas MyISAM does not.
+    InnoDB also provides support for foreign keys, whereas MyISAM does not.
+
+Q209.acid properties of MySQL
+    automicity ==> true or false --> transaction either succ of fail
+    consistency -->the database must be consistent before and after transaction
+    isolation --> Multiple transaction occures independently without any interface
+    durability --> changes of successful transaction occures even after system failure occurs etc
+
+
+Q210.what are aggregate functions in MySQL?
+    count max min avg sum
+
+Q211.difference between having clause and where clause
+    WHERE clause:
+        WHERE Clause is used to filter the records from the table
+        It can be used with SELECT, UPDATE, DELETE statements.
+
+        SELECT S_Name, Age FROM Student WHERE Age >=18
+
+    HAVING Clause:
+        HAVING Clause is used to filter the records from the groups based on the given condition in the HAVING Clause.
+         HAVING Clause can only be used with SELECT statement.
+
+        SELECT Age, COUNT(Roll_No) AS No_of_Students
+        FROM Student GROUP BY Age
+        HAVING COUNT(Roll_No) > 1
+
+Q212. what is JOIN? types of joins in MySQL?
+    refer que 108.
+
+Q213. what is indexing in database?
+    refer que 78.
+
+Q214.can we use all columns for indexing in MySQL?
+    MySQL can use multiple-column indexes for queries that test all the columns in the index,
+    or queries that test just the first column, the first two columns,
+    the first three columns, and so on.
+
+Q215.what is *args and **kwargs in python? use case of it
+    *args collects the positional arguments that are not explicitly defined and store them in a tuple
+
+     **kwargs does the same as *args but for keyword arguments.
+     They are stored in a dictionary because keyword arguments are stored as name-value pairs
+
+     Python does not allow positional arguments to follow keyword arguments.
+
+Q216.steps to design database using python models?
+    1.Edit the file example/models.py to add models.
+    2.Run python manage.py makemigrations to create a migration file.
+    3.The, run python manage.py migrate to excute the migration.
+    4.Run python manage.py shell to start a python console.
+
+Q217.difference between django and flask
+    Refer image flask_django
+
+    Flask is a Python web framework built for rapid development whereas
+    Django is built for easy and simple projects
+
+    Flask offers a diversified working style while Django offers a Monolithic working style.
+
+    Flask is WSGI framework while Django is a Full Stack Web Framework.
+
+Q218. comparison of in built functionalities of django with flask
+    ORM in buit in in dajngo for flask we used sqlalchemy
+    monolithic whear as flask is diversify
+    design batteries included for flask minimiliastic desing
+
+Q219.any known technologies for front-end technologies
+    AngularJS. AngularJS a JavaScript-based open-source front-end
+    react js
+    javascript
+
+
+Q220.explain aws services which u know
+    Amazon Web Services (AWS):database services
+                              offering compute power, database storage, content delivery
+                              messaging, security, analytic
+
+Q221. steps of deployment of flask application on AWS
+    for security reasom i did not do..
+
+Q222.steps for production deployment of application?
+
+Q223. write down steps to do one project from scratch.
+    create virtualenv for project
+    pip install django
+    pip install djnagorestframework
+
+    django-admin startproject proj_name
+    python manage.py startapp app_name
+
+    create model in model.py write login in view.py create urls
+
+    in cmd python manage.py makemigrations - migrate use to push model in database format..
+
+Q224. what is singletone and factory design patterns? use cases of both
+     Singleton is used when we need a instance of an object .. and it will only one instance can be created
+
+     Factory is used when we need to create instances for different classes at run time.
+
+         |         Singleton         |            Factory            |
+    +---------------------------+-------------------------------+
+    | Returns Same instance     | Returns various new instances |
+    | Single Constructor hiding | Multiple Constructors expose  |
+    | No interface              | Interface driven              |
+    | No Subclasses             | Subclasses                    |
+
+
+Q225. how to track admin activities from audit login when data record is in millions? 2-3 ways to do it
+    You can use the Login audit log to track user sign-ins to your domain. You can review all sign-ins
+    from web browsers. If a user signs in from an email client or a non-browser application, you can only
+    review reports of suspicious attempts. You can opt in to share the audit log data with
+     Google Cloud Platform (GCP).
+
+***
+Q226.table structure for admin activities in projects
+
+Q227.what is authentication and authorizaion
+    Authentication and authorization might sound similar, but they are distinct security processes in the world
+     of identity and access management (IAM).
+     Authentication confirms that users are who they say they are.
+     Authorization gives those users permission to access a resource.
+
+Q228. 2 tables --- 1 is emp, 2 dept ---
+    emp --- id name dept_id salary
+    dept --- id name
+    find highest salary of all department
+
+    1st way:
+        select max(salary) from employee where salary not in(select max(salary) from employee);
+
+    2nd way:
+        select salary from employee e1 where 2 = (select count(distinct(salary)) from employee e2 where e2.salary > e1.salary);
+
+Q229.how memory management done in python?
+   did prev
+
+Q230.can programmer access private heap space? does it allow in python?
+    No, OS did that part
+    stack and heap two section astat
+    stack made fun var store karo
+    heap made actual values...
+
+***
+Q231. explain which data structure algorithm u used in ur project?
+    data structures : dictionary
+
+Q232.what is linked list?
+    A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
+    The elements in a linked list are linked using pointers as shown in the below image
+     linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+
+     signly linked list
+     doubly linked list
+     Doubly linked list
+
+Q233.what is scope resolution in python?
+    Scope resolution is required when a variable is used to determine where should its value be come from.
+    Scope resolution in Python follows the LEGB rule.
+
+    there are mainly 2 scope in python
+    global and local
+
+    global means module level...
+    variable defined in global level are accessible to each and every part of the code.
+
+    Yes we can have Read rights anywhere...
+    but if we need Write rights then we have to explicitly use gloabl keyword
+
+Q234.when we have 2 functions with same name, how to assign priority for  it?
+
+Q235.what types of scope in python?
+    Local Scope.
+        The Variables which are defined in the function are a local scope of the variable. ...
+
+    Global Scope.
+        The Variable which can be read from anywhere in the program is known as a global scope. ...
+
+    NonLocal or Enclosing Scope.
+        Nonlocal Variable is the variable that is defined in the nested function. ...
+
+    Built-in Scope.
+
+Q236. what is outer-most scope in python?
+    Enclosing (or nonlocal) scope is a special scope that only exists for nested functions.
+
+Q237. what is module level scope in python?
+    Global (or module) scope is the top-most scope in a Python program
+
+Q238. why should I use namespace in python?
+    A namespace is basically a system to make sure that all the names in a program are unique and
+    can be used without any conflict.
+
+    You might already know that everything in Python—like strings, lists, functions, etc. —is an object.
+
+    Another interesting fact is that Python implements namespaces as dictionaries.
+
+Q239.what are interpreted languages? example of some interpreted languages?
+    An interpreter reads the code from source file and execute it without converting it to machine code.
+
+    Ex. Basci, Perl, Python
+
+Q240.explain python code execution.
+
+Q241. what are decorators in python?
+
+Q242.what are common built-in data types? what is range?
+     basic numeric, string, and Boolean types that are built into Python.
+
+Q243.range is function or data type?
+    The range function in python only works with integers or whole numbers.
+
+Q244.what are complex data types?
+    list, set, tuple, dictionary
+
+Q245.what are built-in types of set?
+    Method	Description
+        add()	Adds an element to the set
+        clear()	Removes all the elements from the set
+        copy()	Returns a copy of the set
+        difference()	Returns a set containing the difference between two or more sets
+        difference_update()	Removes the items in this set that are also included in another, specified set
+        discard()	Remove the specified item
+        intersection()	Returns a set, that is the intersection of two other sets
+        intersection_update()	Removes the items in this set that are not present in other, specified set(s)
+        isdisjoint()	Returns whether two sets have a intersection or not
+        issubset()	Returns whether another set contains this set or not
+        issuperset()	Returns whether this set contains another set or not
+        pop()	Removes an element from the set
+        remove()	Removes the specified element
+        symmetric_difference()	Returns a set with the symmetric differences of two sets
+        symmetric_difference_update()	inserts the symmetric differences from this set and another
+        union()	Return a set containing the union of sets
+        update()	Update the set with another set, or any other iterable
+
+Q246. what is callable() type in python?
+    The callable() method takes only one argument, an object and returns one of the two values:
+
+    returns True, if the object appears to be callable.
+    returns False, if the object is not callable.
+
+    # Python program to illustrate
+# callable()
+class Geek:
+	def __call__(self):
+		print('Hello GeeksforGeeks')
+
+    # Suggests that the Geek class is callable
+    print(callable(Geek))
+
+    # This proves that class is callable
+    GeekObject = Geek()
+    GeekObject()
+
+Q247.what is pass keyword?
+     pass statement is a null statement.
+
+     pass ani comment made diff ahe comment la py interpreter read nahi karat
+     pass la read karto and trat an NOP no operation --> error nahi det..
+
+
+Q248. difference between range() and xrange()
+    As range() returns the list, all the operations that can be applied on the list can be used on it.
+    On the other hand, as xrange() returns the xrange object,
+
+Q249.guideline to write/design REST API?
+    Principles of Designing RESTful APIs
+         base URL of the API is simple. ==> /products
+
+    Use nouns and NOT the verbs
+        API to get all products should be ==> /Products  Not like /getAllProducts
+
+    Use of right HTTP methods
+        RESTful APIs have various methods to indicate the type of operation we are going to perform with this API —
+
+        GET - To get a resource or collection of resources.
+        POST - To create a resource or collection of resources.
+        PUT/PATCH - To update the existing resource or collection of resources.
+        DELETE- To delete the existing resource or the collection of resources.
+        We need to make sure we use the right HTTP method for given operation.
+
+    Use parameters
+        use of query parameters to design the API
+        /products?name=’ABC’ should be preffered over /getProductsByName
+
+    Use proper HTTP codes
+        200 OK
+        400 BAD REQUEST
+        404 NOT FOUND
+        500 INTERNAL SERVER ERROR
+        502 BAD GATEWAY
+
+    Versioning
+            Versioning of APIs is very important. Many different companies use versions in different ways,
+             some use versions as dates while some use versions as query parameters.
+
+             /v1/products
+            /v2/products
+
+    Use Pagination:
+        Use of pagination is a must when you expose an API which might return huge data
+
+    Use of limit and offset is recommended here. For example, /products?limit=25&offset=50 It is also advised to keep a default limit and default offset.
+
+    Supported Formats:
+        Most of the modern day applications should return JSON responses
+
+    Use Proper Error Messages
+        {
+          "error": {
+            "message": "(#803) Some of the aliases you requested do not exist: products",
+            "type": "OAuthException",
+            "code": 803,
+            "fbtrace_id": "FOXX2AhLh80"
+          }
+        }
+
+
+    Use of Open API specifications:
+        Open API allows you to design your APIs first and share that with the consumers in easier manner.
+
+Q250.what is self keyword in python?
+
+Q251.what is unittest? purpose of unittest?
+    The goal of unit testing is to isolate each part of the program and show that the individual parts are correct.
+    A unit test provides a strict, written contract that the piece of code must satisfy. As a result, it affords several benefits
+    Unit testing finds problems early in the development cycle.
+
+    Test Driven Development (TDD) & Unit Testing
+        Tests are written before the code
+        Rely heavily on testing frameworks
+        All classes in the applications are tested
+        Quick and easy integration is made possible
+
+Q252.what type of token authentication u used in ur project? explain process of it?
+    BasicAuthentication.
+    TokenAuthentication.
+    SessionAuthentication.
+    RemoteUserAuthentication.
+
+
+Q253.what is cURL?
+    cURL, which stands for client URL
+
+
+Q254.what is type of mysql and postgresql?
+    Postgres is an object-relational database, while MySQL is a purely relational database.
+
+
+Q255.what type of databases available in market? name some nosql databases.
+    Hadoop/Hbase. Use Apache HBase when you need random, real-time read/write access to your Big Data. ...
+    Cassandra. The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. ...
+    Hypertable. ...
+    Accumulo. ...
+    Amazon SimpleDB. ...
+    Cloud Data. ...
+    HPCC. ...
+    Flink
+
+Q256.which design patterns u used in ur project? explain it.
+
+Q257. which services of AWS u know? explore that services.
+
+Q258.what is left outer join in mysql?
+
+Q259.explain technical projects flow which u have done in ur experience?
+
+Q260.difference between list and tuple? explain difference according to
+performance time as well
+
+Q261.memory management in python? difference between deep copy and  shallow copy.
+
+
+Q262.write down program to explain string sicing concept.
+
+Q263. write a program for string palindrome, return true if palindrome and false if not.
+    # function which return reverse of a string
+
+    def isPalindrome(s):
+        return s == s[::-1]
+
+
+    # Driver code
+    s = "malayalam"
+    ans = isPalindrome(s)
+
+    if ans:
+        print("Yes")
+    else:
+        print("No")
+
+OR
+    # Python program to check
+    # if a string is palindrome
+    # or not
+
+    x = "malayalam"
+
+    w = ""
+    for i in x:
+        w = i + w
+
+    if (x == w):
+        print("Yes")
+    else:
+        print("No")
+
+
+Q264.write a function to print fibonacci series
+    # Program to display the Fibonacci sequence up to n-th term
+
+nterms = int(input("How many terms? "))
+
+    # first two terms
+    n1, n2 = 0, 1
+    count = 0
+
+    # check if the number of terms is valid
+    if nterms <= 0:
+       print("Please enter a positive integer")
+    elif nterms == 1:
+       print("Fibonacci sequence upto",nterms,":")
+       print(n1)
+    else:
+       print("Fibonacci sequence:")
+       while count < nterms:
+           print(n1)
+           nth = n1 + n2
+           # update values
+           n1 = n2
+           n2 = nth
+           count += 1
+
+Q265.u have implemented any custom data structure algorithm for ur  project?
+
+Q266. pros and cons of django and flask according to scnarios.
+
+Q267.explain merge sort.
+    Merge Sort is a Divide and Conquer algorithm.
+    It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves
+
+Q268.scenario question on sorting algorithm.
+
+Q269.3 layers cake is there. want to make 8 pieces of that but only 3 cuts are allowed. how u will do it?
+
+Q270.write a program to search particular substring from given string and  gives index of that.
+
+Q271.write a program using re module to search substring all occurances along with index.
+
+Q272.explain binary tree search algorithm.
+    The left subtree of a node contains only nodes with keys lesser than the node’s key.
+    The right subtree of a node contains only nodes with keys greater than the node’s key.
+    The left and right subtree each must also be a binary search tree.

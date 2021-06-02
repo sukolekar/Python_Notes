@@ -1,0 +1,237 @@
+WSGI:
+    WSGI stands for "Web Server Gateway Interface".
+    It is used to forward requests from a web server (such as Apache or NGINX) to a backend Python
+    web application or framework. From there, responses are then passed back to the webserver to reply
+    to the requestor.
+
+1. project team size and duration
+    project ongoing when i joined organization 4-5
+
+    team size: 4
+               rushi yadav
+               ajit gangthade
+               priya
+               me
+
+    team lead: Shrikrushna diwase
+
+    Proj Manager: Rithes dayma
+
+    HR name: Indrajeet Bhagwat..
+
+
+2. project maintainence after deployment
+    yes
+    when they design srs for business that time they mentioned after complettion project
+    the will provide support for 2-3 years etc...
+
+
+3. some times user creates account and never used it, how you manage those inactive users database
+    It's like atm card first you gave soft message u have to check once your else we will distroy
+
+
+4. Admin panel & user panel
+    admin have more feature to handle user
+    user interact with UI part only
+
+5. Authorization and Authentication
+    Authentication means confirming your own identity.
+    authorization means granting access to the system.
+
+6. is your website has a mobile app
+
+7. Report generation
+    Reports generation is the process of using a tool for creating reports primarily for business users.
+
+
+8. in built functions and libraries used in project
+    django
+    flask
+    sqlalchemy
+    request
+    pillow
+    dbconnectors
+    swagger
+    drf
+    pypdf
+    pytest
+    boto3
+    payment
+
+
+9. Backend & front end technologies
+    logger
+    git
+    ejira
+    sdlc
+    agile
+    postman
+    request
+    restweb
+    mvc
+
+10. project documentation
+    enconfluence navacha folder asto drive la:
+        tyamade hld lld he documents astat
+
+
+11.Have you follow oops concept in projects?
+    Yes
+    for common fields we write abstract factory methods
+        whoever wants to access that field that child class is responsible to write implemtation
+
+    Inheritance:
+        common properties write in single class and using super() parent methods
+        child class get attribute of parent class
+
+
+Q.where used decorator in ur project??
+   creational:
+        singletone --> used in database
+        abstract factory
+
+   Structural:
+        proxy
+        adapter
+        decorator
+
+   Behavioural:
+        observe
+        iterator
+
+Q.Tell me about your project
+    project is automated registration and testing for automotive infotainment system
+    the goal is to design this project to registration and testing vehicle model and vender details
+
+    Suppose vendor want manufacture vehicel in india then they should follow govt norms
+    for that government have certification process
+
+        TA [type approval]
+            factors like:
+                env
+                safety
+                width height len
+                ground clearence etc.
+
+        MOP [mass of production]
+
+        R&D [reserach and development]
+
+        Rectification --> old model made kahi updates karayche asel tr
+
+    Flow is like:
+        1st vendor register with the govt agencies
+        govt. agencies collect data from vendor
+           data:
+                1.vendor details -- contact etc..
+                2.unit of area
+                3.which field they manufacture
+
+    First of all vendor register with govt agencies
+    governmetn agencies collect data from vender
+    one SPOC[single poing of contact]  from vendor side who will responsible to give an information
+
+    registration
+        email verify
+            emp username pass --> change password after vender see the dashboard
+
+    Types of User:  1.internal user(admin)  --> test eng, HOD, cordinatorss, admin
+                    2.external user(self register) -->vendor spoc
+
+
+    after registration case number will be provided
+        case number contain --> 2 -- TA tipe approval case
+                                4 letter company name
+                                4 letter month/year
+                                6 digit for unique
+
+                           total=16
+
+        If internal user can see this case number they will tell detail of this type approval
+
+
+  TA --> two departments 1.CSE (center for science and environment)
+                               CSE cordinator(verify details which comes from TA and send to CSE HOD)
+                               CSE HOD(check detail if req add some suggestion and send back to cordinator)
+
+
+                         2.Insustrial Type(dept specific)
+                                Desel Engine
+                                    Cordinator
+                                    HOD
+                                    Tester
+
+                                Petrol Engine
+                                    Cordinator
+                                    HOD
+                                    Tester
+
+                                CNG
+                                    Cordinator
+                                    HOD
+                                    Tester
+
+                         Cordinate select test cases then it pass to HOD
+
+                         HOD can -->1. approve
+                                    2.reject
+                                    3.add more test
+
+        After TA apply for MOP(mass of production) --> after completion of mop again test case will conduct
+
+            if all norms are satisfy then part of production comes in the market to use....
+
+
+
+
+
+
+Q.ur roles and responsibilities in current project
+            OR
+Q.explain technical projects flow which u have done in ur experience?
+
+    Involment in various aspect of SDLC including requirements gatchering coding testing
+    deployment on UAT/QA.
+
+    provide technical support and consultation
+
+
+    Involved in designing the database Structure and LLD.
+
+    Participated in client calls and involved in requirement gathering from the client.
+
+    Work with Senior Engineers to understand software requirements and timelines.
+
+    Actively Involved in Scrum Meeting to discuss the Issue.
+
+    Coding of different modules as per the business requirements and preparing technical
+    specifications documents for those functionalities.
+
+    Actively participated in standup project status meetings, sprint meetings or client calls.
+
+
+Q134.explain current project along with architecture.
+
+
+
+Q137. project scenario example when to use django and when flask?
+    small project we used flask for large application we used django
+
+Q.how agile process works? --- explain all details about agile
+    agile scrum methodology:
+        product backlog:    SRS
+                sprint palanning meeting:--> team select
+                    srpint backlog:--> task breakout
+                            sprint review:
+                            finished work:
+                            sprint retrospective:
+
+    sprint end date and team deliverable do not change....
+
+
+Q.table structure for admin activities in projects
+
+Q.how to track admin activities from audit login when data record is in millions?
+
+
+
